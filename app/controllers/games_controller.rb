@@ -9,7 +9,6 @@ class GamesController < ApplicationController
   def create
     @user = User.find_by(email:params[:email])
     @game = Game.new(player:@user, host:current_user, turn_number: 0, host_score:0, player_score:0)
-    @questions = Question.first(10)#this needs to change
     generate_game_questions(@questions, @game)
     if @game.save
       redirect_to game_path(@game)
@@ -28,8 +27,9 @@ class GamesController < ApplicationController
   private 
 
   def generate_game_questions(questions, thisgame)
-    questions.each do |question1|
-      GameQuestion.create(question:question1, game:thisgame)
+    @questions = Question.first(10)#this needs to change
+    @questions.each do |question1|
+      GameQuestion.create(game:thisgame, question_id:question1.id)
     end
   end
 
