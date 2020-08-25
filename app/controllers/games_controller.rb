@@ -2,12 +2,15 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @question = Question.find(1) 
+    
   end
 
   def create
     @user = User.find_by(email:params[:email])
-    @game = Game.new(player:@user, host:current_user)
-    @game.save
+    @game = Game.new(player:@user, host:current_user, turn_number: 0, host_score:0, player_score:0)
+    @questions = Question.first(10)#this needs to change
+    generate_game_questions(@questions, @game)
     if @game.save
       redirect_to game_path(@game)
     else
@@ -22,11 +25,12 @@ class GamesController < ApplicationController
     @test = "this is coming from the games controller"
   end
 
+  private 
 
-  private
-
-  def game_params
-    params.require(:game).permit(:player_id)
+  def generate_game_questions(questions, thisgame)
+    questions.each do |question1|
+      GameQuestion.create(question:question1, game:thisgame)
+    end
   end
 
 end

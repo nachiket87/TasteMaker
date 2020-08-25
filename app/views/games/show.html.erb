@@ -1,4 +1,14 @@
 <h1> Games Show page </h1>
 <h3> #games_controller -> games#show</h3>
+<%= @question.link %>
+<ul>
+<% @question.all_answers.each do |answer| %>
+  <li>
+  <%= answer %>
+  </li>
+<% end %>
+<ul>
+
 <%= @game.host.email %> vs. <%= @game.player.email %>
+
 
