@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @user = User.find(game_params[:player_id])
+    @user = User.find_by(email:params[:email])
     @game = Game.new(player:@user, host:current_user)
     if @game.save
       redirect_to game_path(@game)
