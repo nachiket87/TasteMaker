@@ -7,6 +7,7 @@ class GamesController < ApplicationController
   def create
     @user = User.find_by(email:params[:email])
     @game = Game.new(player:@user, host:current_user)
+    @game.save
     if @game.save
       redirect_to game_path(@game)
     else
@@ -16,7 +17,6 @@ class GamesController < ApplicationController
 
   def start
   end
-
 
   def test
     @test = "this is coming from the games controller"
