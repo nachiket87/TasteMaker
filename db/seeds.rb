@@ -2,7 +2,7 @@ puts "Destroying Questions"
 Question.destroy_all if Rails.env.development?
 
 
-question1 = Question.create(link: "Just keep swimming", answers: '{ correct: "Finding Nemo", incorrect: ["Frozen", "The Incredibles", "Jaws"] }')
+question1 = Question.create(:link => "Just keep swimming", :answers => { correct: "Finding Nemo", incorrect: ["Frozen", "The Incredibles", "Jaws"] })
 question2 = Question.create(:link => "A million dollars isn't cool. You know what's cool? A billion dollars.", :answers => { correct: "The Social Network", incorrect: ["Steve Jobs", "The Founder", "The Wolf of Wall Street"] })
 question3 = Question.create(:link => "I'm king of the world!", :answers => { correct: "Titanic", incorrect: ["The Wolf of Wall Street", "Good Will Hunting", "The King's Speech"] })
 question4 = Question.create(:link => "I feel the need - the need for speed!", :answers => { correct: "Top Gun", incorrect: ["The Fast & The Furious", "Cars", "Iron Eagle"] })
