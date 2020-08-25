@@ -3,8 +3,5 @@
 <%= form_tag("/games", method: "post") do %>
   <%= label_tag(:q, "Challenge by Email:") %>
   <%= text_field_tag(:email) %>
-  <%= submit_tag("Search") %>
+  <%= submit_tag("Challenge") %>
 <% end %>
-
-<%= link_to 'log in', new_user_session_path %>
-<%= link_to 'log out', destroy_user_session_path %>
