@@ -7,7 +7,6 @@ class GamesController < ApplicationController
   #  raise
     @game_question = @gamequestions[@game.turn_number]
     @game_question.update(order_number: @game.turn_number)
-
     # raise
   end
 
@@ -35,6 +34,7 @@ class GamesController < ApplicationController
         redirect_to root_path
       else
         @game_question.update(order_number: @game.turn_number)
+        @gamequestions = @game.game_questions
         render :show
       end
     else
@@ -62,5 +62,4 @@ class GamesController < ApplicationController
       game.status = "Pending"
     end
   end
-
 end
