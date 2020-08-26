@@ -2,6 +2,9 @@
 <h3> #games_controller -> games#show</h3>
 <p>
 <%= @game.host.name %> vs. <%= @game.player.name %>
+<%= current_user.id %>
+<%= @game.player_id %>
+
 </p>
 <div class="container">
   <%= @gamequestions[@game.turn_number].question.link %>
