@@ -35,7 +35,7 @@ class GamesController < ApplicationController
         render :show
       end
     else
-      render html: "<script>alert('Wrong Answer! Try again')</script>".html_safe
+      render :js => "alert('wrong answer try again');"
     end
   end
 
