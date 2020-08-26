@@ -5,6 +5,9 @@ class GamesController < ApplicationController
     @gamequestions = @game.game_questions
     update_status(@game)
   #  raise
+    @game_question = @gamequestions[@game.turn_number]
+    @game_question.update(order_number: @game.turn_number)
+    # raise
   end
 
   def create
@@ -28,13 +31,19 @@ class GamesController < ApplicationController
 
   def answer
     @game = Game.find(params[:id])
-    @game.update(turn_number: @game.turn_number+=1)
-    @gamequestions = @game.game_questions
-    if @game.turn_number == 10
-      @game.update(status: :completed)
-      redirect_to root_path
+    if params[:answer] == GameQuestion.find_by(order_number: @game.turn_number).question.answers[:correct]
+      @game.update(turn_number: @game.turn_number+=1)
+      @game_question = @game.game_questions[@game.turn_number]
+      if @game.turn_number == 10
+        @game.update(status: :completed)
+        redirect_to root_path
+      else
+        @game_question.update(order_number: @game.turn_number)
+        @gamequestions = @game.game_questions
+        render :show
+      end
     else
-      render :show
+      render :js => "alert('wrong answer try again');"
     end
   end
 
@@ -58,5 +67,4 @@ class GamesController < ApplicationController
       game.status = "Pending"
     end
   end
-
 end
