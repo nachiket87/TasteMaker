@@ -1,4 +1,5 @@
 class GameQuestion < ApplicationRecord
-  has_one :question
-
+  belongs_to :game
+  belongs_to :question
+  #belongs_to :user
 end
