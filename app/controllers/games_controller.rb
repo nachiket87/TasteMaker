@@ -2,7 +2,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @gamequestions = GameQuestion.where(game_id:@game)
+    @gamequestions = @game.game_questions 
+  #  raise
   end
 
   def create
@@ -17,6 +18,14 @@ class GamesController < ApplicationController
   end
 
   def start
+  end
+
+  def answer
+    @game = Game.find(params[:id])
+    #@game.turn_number += 1
+    @game.update(turn_number: @game.turn_number+=1)
+    @gamequestions = @game.game_questions
+    render :show
   end
 
   def test

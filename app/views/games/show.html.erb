@@ -4,18 +4,8 @@
 <%= @game.host.name %> vs. <%= @game.player.name %>
 </p>
 <div class="container">
-  <ol>
-  <% @gamequestions.each do |x| %>
-    <li>
-      <%= x.question.link %>
-      <ul>
-      <% x.question.all_answers.each do |answer| %>
-          <li style="display:inline-block; margin: 10px 10px;">
-            <%= answer %>
-          </li>
-      <% end %>
-      </ul>
-    </li>
+  <%= @gamequestions[@game.turn_number].question.link %>
+  <%= form_tag("/games/#{@game.id}/answer", method: "PATCH") do %>
+    <%= submit_tag("Next Question") %>
   <% end %>
-  </ol>
 </div>
