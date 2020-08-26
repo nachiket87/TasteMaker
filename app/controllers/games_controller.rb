@@ -50,7 +50,7 @@ class GamesController < ApplicationController
     @user = current_user
     @current_page = request.original_url
     if @user.id == game.player_id && @current_page.include?("games/#{game.id}")
-      game.status = "Active"
+      game.status = "Pending"
     end
   end
 
