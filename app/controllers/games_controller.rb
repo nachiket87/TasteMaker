@@ -2,7 +2,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @gamequestions = @game.game_questions 
+    @gamequestions = @game.game_questions
+    update_status(@game)
   #  raise
   end
 
@@ -43,6 +44,14 @@ class GamesController < ApplicationController
       GameQuestion.create!(game:game1, question:q)
     end
 
+  end
+
+  def update_status(game)
+    @user = current_user
+    @current_page = request.original_url
+    if @user.id == game.player_id && @current_page.include?("games/#{game.id}")
+      game.status = "Pending"
+    end
   end
 
 end
