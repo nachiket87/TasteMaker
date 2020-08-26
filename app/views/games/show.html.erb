@@ -15,6 +15,9 @@
           allowfullscreen 
           allow=autoplay>
   </iframe>
+  <%= @game_question.question.link  %>
+  <%=@game_question.order_number%>
+  
   <%= form_tag("/games/#{@game.id}/answer", method: "PATCH") do %>
     <%= select_tag "answer", options_for_select(@game_question.question.all_answers) %>
     <%= submit_tag("Next Question") %>
