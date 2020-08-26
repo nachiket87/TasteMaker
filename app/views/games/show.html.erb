@@ -4,7 +4,14 @@
 <%= @game.host.name %> vs. <%= @game.player.name %>
 </p>
 <div class="container">
-  <%= @gamequestions[@game.turn_number].question.link %>
+
+  <iframe src="https://player.vimeo.com/video/<%= @gamequestions[@game.turn_number].question.link %>?autoplay=1&muted=1#t=40s" 
+          width="640" 
+          height="360" 
+          frameborder=“0” 
+          allowfullscreen 
+          allow=autoplay>
+  </iframe>
   <%= form_tag("/games/#{@game.id}/answer", method: "PATCH") do %>
     <%= submit_tag("Next Question") %>
   <% end %>
