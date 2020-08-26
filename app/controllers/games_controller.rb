@@ -22,10 +22,14 @@ class GamesController < ApplicationController
 
   def answer
     @game = Game.find(params[:id])
-    #@game.turn_number += 1
     @game.update(turn_number: @game.turn_number+=1)
     @gamequestions = @game.game_questions
-    render :show
+    if @game.turn_number == 10
+      @game.update(status: :completed)
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   def test
