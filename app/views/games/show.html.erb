@@ -1,5 +1,21 @@
 <h1> Games Show page </h1>
 <h3> #games_controller -> games#show</h3>
-
+<p>
 <%= @game.host.name %> vs. <%= @game.player.name %>
+</p>
+
+<ol>
+<% @questions.each do |question| %>
+  <li><%= question.link %></li>
+      <br>
+  <ul>
+  <% question.all_answers.each do |answer| %>
+      <li>
+      <%= answer %>
+      </li>
+  <% end %>
+      <br>
+  </ul>
+<% end %>
+</ol>
 

@@ -2,6 +2,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @questions = Question.first(10)
   end
 
   def create
