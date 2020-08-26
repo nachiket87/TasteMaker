@@ -10,6 +10,11 @@ class GamesController < ApplicationController
   def create
     @user = User.find_by(email:params[:email])
     @game = Game.new(player:@user, host:current_user, turn_number: 0, host_score:0, player_score:0)
+    @notification = Notification.new
+    @notification.user_id = @user
+    @notification.game_id = @game
+    @notification.content = "#{@notification.user_id} has challenged you!"
+    @notification.save
     if @game.save
       create_game_questions(@game)
       redirect_to game_path(@game)

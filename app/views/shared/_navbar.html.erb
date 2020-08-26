@@ -7,6 +7,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div id="notiDropDown" class="dropdown-menu">
+    <% current_user.notifications.reverse.each do |notification| %>
+      <%=link_to notification.text, "#", class:"dropdown-item my-2"%>
+    <%end%>
+  </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
