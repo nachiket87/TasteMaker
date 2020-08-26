@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
   serialize :answers, Hash
+  belongs_to :game_questions
 
   def all_answers
     all_options = self.answers[:incorrect]
