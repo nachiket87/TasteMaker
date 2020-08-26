@@ -23,4 +23,8 @@
     <%= submit_tag("Next Question") %>
   <% end %>
 
+  <div id="gameInfo" data-game-id = "<%=@game.id%>">
+    <%= @game.turn_number %>
+  </div>
+
 </div>
