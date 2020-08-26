@@ -3,18 +3,19 @@
 <p>
 <%= @game.host.name %> vs. <%= @game.player.name %>
 </p>
-
-<ol>
-<% @questions.each do |question| %>
-  <li><%= question.link %></li>
-      <br>
-  <ul>
-  <% question.all_answers.each do |answer| %>
-      <li>
-      <%= answer %>
-      </li>
+<div class="container">
+  <ol>
+  <% @gamequestions.each do |x| %>
+    <li>
+      <%= x.question.link %>
+      <ul>
+      <% x.question.all_answers.each do |answer| %>
+          <li style="display:inline-block; margin: 10px 10px;">
+            <%= answer %>
+          </li>
+      <% end %>
+      </ul>
+    </li>
   <% end %>
-      <br>
-  </ul>
-<% end %>
-</ol>
+  </ol>
+</div>
