@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="d-flex justify-content-center">
     <iframe src="https://player.vimeo.com/video/<%= @game_question.question.link %>?autoplay=1&muted=1#t=40s" 
             width="640" 
             height="360" 
@@ -6,9 +7,20 @@
             allowfullscreen 
             allow=autoplay>
     </iframe>
-    <% @game_question.question.all_answers.shuffle.each do |ans|%>
-      <p>
-        <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH" %>
-      </p>
-    <% end %>   
+  </div>
+  <div class="d-flex justify-content-center mt-5">
+    <div class="container w-50">
+      <% @game_question.question.all_answers.shuffle.each_with_index do |ans, index|%>
+        <% if index == 0 || index == 2 %>
+          <div class="row m-4">
+        <%end%>
+        <div class="col-sm d-flex justify-content-center">
+          <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", :class => "btn btn-warning w-100" %>
+        </div>
+        <% if index == 1 || index == 3 %>
+          </div>
+        <% end %>
+      <% end %>   
+    </div>
+  </div>
 </div>
