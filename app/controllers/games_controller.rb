@@ -30,8 +30,9 @@ class GamesController < ApplicationController
   end
 
   def answer
-    @game = Game.find(params[:id])
+    @game = Game.find(params[:game_id])
     if params[:answer] == GameQuestion.find_by(order_number: @game.turn_number).question.answers[:correct]
+      User.find(params[:user_id]) == @game.host ? @game.host_score += 1 : @game.player_score += 1
       @game.update(turn_number: @game.turn_number + 1)
       @game_question = @game.game_questions[@game.turn_number]
       if @game.turn_number == 10
