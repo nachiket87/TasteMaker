@@ -8,6 +8,13 @@ const showNotificationContent = () => {
     });
   }
 }
-// const decline = element.getElementById("decline-button");
+const decline = document.getElementById("decline-button");
+
+if (decline) {
+  decline.addEventListener('click', (event) => {
+    event.preventDefault();
+    decline.parentElement.innerHTML = '';
+  });
+}
 
 export { showNotificationContent };
