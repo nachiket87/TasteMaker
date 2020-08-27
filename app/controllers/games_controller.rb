@@ -2,8 +2,14 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    if !@game.player.present? && current_user != @game.host
+      @game.update(player: current_user, status: "started")  
+      GameChannel.broadcast_to(
+        @game,
+        {type: "start game"}
+      )
+    end
     @gamequestions = @game.game_questions
-    update_status(@game)
   #  raise
     @game_question = @gamequestions[@game.turn_number]
     # @game_question.update(order_number: @game.turn_number)
@@ -22,17 +28,17 @@ class GamesController < ApplicationController
     end
   end
 
-  def invite
-    @game = Game.find(params[:id])
-    unless(@game.player.present? && current_user == @game.host)
-      @game.update(player: current_user, status: "invited")  
-      GameChannel.broadcast_to(
-        @game,
-        render_to_string(partial: "message")
-      )
-    else 
-    end
-  end
+  # def invite
+  #   @game = Game.find(params[:id])
+  #   unless(@game.player.present? && current_user == @game.host)
+  #     @game.update(player: current_user, status: "invited")  
+  #     GameChannel.broadcast_to(
+  #       @game,
+  #       render_to_string(partial: "message")
+  #     )
+  #   else 
+  #   end
+  # end
 
   def start
     
@@ -45,16 +51,15 @@ class GamesController < ApplicationController
       @game_question = @game.game_questions[@game.turn_number]
       if @game.turn_number == 10
         @game.update(status: :completed)
-        redirect_to root_path
       else
         # @game_question.update(order_number: @game.turn_number)
         @gamequestions = @game.game_questions
         # render :show
-        GameChannel.broadcast_to(
-          @game,
-          render_to_string(partial: "message")
-        )
       end
+          GameChannel.broadcast_to(
+            @game,
+            render_to_string(partial: "message")
+          )
     else
 
     end
