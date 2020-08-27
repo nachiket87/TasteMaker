@@ -16,7 +16,7 @@
           <div id="notification-div">
             <%=link_to notification.content, "#", class:"dropdown-item my-2"%>
             <button><%=link_to "Accept", game_path(notification) %></button>
-            <button id="decline-button"><%=link_to "Decline", "#", method: :destroy %></button>
+            <button id="decline-button"><%=link_to "Decline", notification_path(notification), :method => :delete %></button>
           </div>
         <%end%>
       </div>
