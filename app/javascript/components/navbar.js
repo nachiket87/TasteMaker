@@ -13,7 +13,7 @@ const decline = document.getElementById("decline-button");
 if (decline) {
   decline.addEventListener('click', (event) => {
     event.preventDefault();
-    decline.parentElement.innerHTML = '';
+    decline.parentElement.innerHTML = null;
   });
 }
 
