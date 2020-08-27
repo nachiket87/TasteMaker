@@ -8,5 +8,6 @@ const showNotificationContent = () => {
     });
   }
 }
+// const decline = element.getElementById("decline-button");
 
 export { showNotificationContent };
