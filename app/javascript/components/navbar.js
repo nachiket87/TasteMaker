@@ -7,14 +7,14 @@ const showNotificationContent = () => {
       notiList.classList.toggle("show");
     });
   }
+  const declines = document.querySelectorAll(".decline-button");
+    declines.forEach((decline) => {
+      decline.addEventListener('click', (event) => {
+        event.preventDefault();
+        decline.parentElement.innerHTML = "";
+      });
+    });
 }
-const decline = document.getElementById("decline-button");
 
-if (decline) {
-  decline.addEventListener('click', (event) => {
-    event.preventDefault();
-    decline.parentElement.innerHTML = null;
-  });
-}
 
 export { showNotificationContent };
