@@ -16,7 +16,7 @@ class GamesController < ApplicationController
     @notification = Notification.new
     @notification.user = @user
     @notification.game = @game
-    @notification.content = "#{@notification.user.name} has challenged you!"
+    @notification.content = "#{@game.host.name} has challenged you!"
     if @game.save
       create_game_questions(@game)
       @notification.save
