@@ -1,30 +1,27 @@
-<h1> Games Show page </h1>
-<h3> #games_controller -> games#show</h3>
-<p>
-<%= @game.host.name %> vs. <%= @game.player.name %>
-<%= current_user.id %>
-<%= @game.player_id %>
-
-</p>
-<div class="container">
-
-  <iframe src="https://player.vimeo.com/video/<%= @gamequestions[@game.turn_number].question.link %>?autoplay=1&muted=1#t=40s" 
-          width="640" 
-          height="360" 
-          frameborder=“0” 
-          allowfullscreen 
-          allow=autoplay>
-  </iframe>
-  <%= @game_question.question.link  %>
-  <%=@game_question.order_number%>
-  
-  <%= form_tag("/games/#{@game.id}/answer/#{current_user.id}", method: "PATCH") do %>
-    <%= select_tag "answer", options_for_select(@game_question.question.all_answers) %>
-    <%= submit_tag("Next Question") %>
-  <% end %>
-
-  <div id="gameInfo" data-game-id = "<%=@game.id%>">
-    <%= @game.turn_number %>
-  </div>
-
+<div id="gameInfo" data-game-id = "<%=@game.id%>">
+      <%= @game.turn_number %>
 </div>
+<% if @game.status == "waiting"%> 
+  <h1>Hello we're waiting </h1>
+<% elsif @game.status == "started"%>
+  <div class="container">
+
+    <iframe src="https://player.vimeo.com/video/<%= @gamequestions[@game.turn_number].question.link %>?autoplay=1&muted=1#t=40s" 
+            width="640" 
+            height="360" 
+            frameborder=“0” 
+            allowfullscreen 
+            allow=autoplay>
+    </iframe>
+    <%= @game_question.question.link  %>
+    <%=@game_question.order_number%>
+    
+    <%= form_tag("/games/#{@game.id}/answer", method: "PATCH") do %>
+      <%= select_tag "answer", options_for_select(@game_question.question.all_answers) %>
+      <%= submit_tag("Next Question") %>
+    <% end %>
+  </div>
+<%else%>
+  <h1>Game over</h1>
+<%end%>
+

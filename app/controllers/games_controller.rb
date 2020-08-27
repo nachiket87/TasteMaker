@@ -2,24 +2,26 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    if !@game.player.present? && current_user != @game.host
+      @game.update(player: current_user, status: "started")  
+      GameChannel.broadcast_to(
+        @game,
+        {type: "start game"}
+      )
+    end
     @gamequestions = @game.game_questions
-    update_status(@game)
-  #  raise
     @game_question = @gamequestions[@game.turn_number]
-    # @game_question.update(order_number: @game.turn_number)
-    # raise
   end
 
   def create
     @user = User.find_by(email:params[:email])
-    @game = Game.new(player:@user, host:current_user, turn_number: 0, host_score:0, player_score:0)
+    @game = Game.new(host:current_user, turn_number: 0, host_score:0, player_score:0, status: "waiting")
     @notification = Notification.new
     @notification.user = @user
     @notification.game = @game
-    @notification.content = "#{@game.host.name} has challenged you!"
+    @notification.content = "#{@game.host.name} has challenged you!"    
     if @game.save
       create_game_questions(@game)
-      @notification.save
       redirect_to game_path(@game)
     else
       render root_path
@@ -27,6 +29,7 @@ class GamesController < ApplicationController
   end
 
   def start
+    
   end
 
   def answer
@@ -37,16 +40,13 @@ class GamesController < ApplicationController
       @game_question = @game.game_questions[@game.turn_number]
       if @game.turn_number == 10
         @game.update(status: :completed)
-        redirect_to root_path
       else
-        # @game_question.update(order_number: @game.turn_number)
         @gamequestions = @game.game_questions
-        # render :show
-        GameChannel.broadcast_to(
-          @game,
-          render_to_string(partial: "message")
-        )
       end
+          GameChannel.broadcast_to(
+            @game,
+            render_to_string(partial: "message")
+          )
     else
 
     end
