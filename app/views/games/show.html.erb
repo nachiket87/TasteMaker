@@ -1,9 +1,9 @@
+<div id="overlayBack" class="overlay-back">
+<div id="overlay" class="overlay"><span><%=link_to "invite ur bud", invite_path(@game), :method=> :patch %></span></div> 
+</div>
 <h1> Games Show page </h1>
 <h3> #games_controller -> games#show</h3>
 <p>
-<%= @game.host.name %> vs. <%= @game.player.name %>
-<%= current_user.id %>
-<%= @game.player_id %>
 
 </p>
 <div class="container">
@@ -26,5 +26,7 @@
   <div id="gameInfo" data-game-id = "<%=@game.id%>">
     <%= @game.turn_number %>
   </div>
+  
 
 </div>
+
