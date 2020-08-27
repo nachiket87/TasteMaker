@@ -14,12 +14,12 @@ class GamesController < ApplicationController
     @user = User.find_by(email:params[:email])
     @game = Game.new(player:@user, host:current_user, turn_number: 0, host_score:0, player_score:0)
     @notification = Notification.new
-    @notification.user_id = @user
-    @notification.game_id = @game
-    @notification.content = "#{@notification.user_id} has challenged you!"
-    @notification.save
+    @notification.user = @user
+    @notification.game = @game
+    @notification.content = "#{@notification.user.name} has challenged you!"
     if @game.save
       create_game_questions(@game)
+      @notification.save
       redirect_to game_path(@game)
     else
       render root_path
@@ -47,7 +47,7 @@ class GamesController < ApplicationController
         )
       end
     else
-      
+
     end
   end
 
