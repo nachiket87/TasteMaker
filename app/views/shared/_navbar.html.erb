@@ -13,8 +13,11 @@
       <%end%>
       <div id="notiDropDown" class="dropdown-menu">
         <% current_user.notifications.reverse.each do |notification| %>
-          <%=link_to notification.content, "#", class:"dropdown-item my-2"%>
-          <%=link_to "Accept", "#" %>
+          <div id="notification-div">
+            <%=link_to notification.content, "#", class:"dropdown-item my-2"%>
+            <button><%=link_to "Accept", game_path(notification) %></button>
+            <button id="decline-button"><%=link_to "Decline", game_path(notification) %></button>
+          </div>
         <%end%>
       </div>
     </div>
