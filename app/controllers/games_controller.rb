@@ -20,9 +20,15 @@ class GamesController < ApplicationController
     @notification = Notification.new
     @notification.user = @user
     @notification.game = @game
-    @notification.content = "#{@game.host.name} has challenged you!"    
+    @notification.content = "#{@game.host.name} has challenged you!"
+
     if @game.save
       create_game_questions(@game)
+      @notification.save
+      NotificationChannel.broadcast_to(
+        @user,
+        render_to_string(partial: "shared/notification", locals: { user: @user })
+      )
       redirect_to game_path(@game)
     else
       render root_path

@@ -7,14 +7,22 @@ const showNotificationContent = () => {
       notiList.classList.toggle("show");
     });
   }
-}
-const decline = document.getElementById("decline-button");
+  const declines = document.querySelectorAll(".decline-button");
+  declines.forEach((decline) => {
+    decline.addEventListener('click', (event) => {
+      event.preventDefault();
+      decline.parentElement.innerHTML = "";
+    });
+  });
 
-if (decline) {
-  decline.addEventListener('click', (event) => {
-    event.preventDefault();
-    decline.parentElement.innerHTML = null;
+  const accepts = document.querySelectorAll(".accept-button");
+  accept.forEach((accept) => {
+    accept.addEventListener('click', (event) => {
+      event.preventDefault();
+      accept.parentElement.innerHTML = "";
+    });
   });
 }
+
 
 export { showNotificationContent };

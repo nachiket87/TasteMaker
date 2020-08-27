@@ -11,16 +11,11 @@
       <%= link_to "#", id:"noti-drop" do %>
         <i class="far fa-bell"></i>
       <%end%>
-      <div id="notiDropDown" class="dropdown-menu">
-        <% current_user.notifications.reverse.each do |notification| %>
-          <div id="notification-div">
-            <%=link_to notification.content, "#", class:"dropdown-item my-2"%>
-            <button><%=link_to "Accept", game_path(notification) %></button>
-            <button id="decline-button"><%=link_to "Decline", notification_path(notification), :method => :delete %></button>
-          </div>
-        <%end%>
+      <div id="notiDropDown" class="dropdown-menu notificationContainer">
+        <%= render partial: "shared/notification", locals: { user: current_user } %>
       </div>
     </div>
+
   <%end%>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
