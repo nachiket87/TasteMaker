@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/games/test", to: "games#home", as: "games_test" #test route - delete later
   post "/games", to: "games#create"
   patch "/games/:id/start", to: "games#start", as: 'start_game'
-  patch "/games/:id/answer", to: "games#answer"
+  patch "/games/:id/answer", to: "games#answer", as: 'game_answer'
   patch "/games/:id/timeout", to: "games#timeout"
   delete "/", to: "notifications#destroy"
 end

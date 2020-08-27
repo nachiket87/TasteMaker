@@ -9,10 +9,8 @@ const initGameCable = () => {
       received(data) {
         console.log("It worked")
         console.log(data); 
-        // location.reload();
         Turbolinks.clearCache();
         Turbolinks.visit("");
-        // called when data is broadcast in the cable
       },
     });
   }
