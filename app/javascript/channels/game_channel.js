@@ -10,11 +10,11 @@ const initGameCable = () => {
         if (data.type == "start game") {
           // startGame();
         }
-        console.log("It worked")
-        console.log(data); 
-        Turbolinks.clearCache();
-        Turbolinks.visit("");
-        // called when data is broadcast in the cable
+        const mainbody = document.getElementById("mainbody") // main body
+        mainbody.innerHTML = ""
+        mainbody.innerHTML = data
+        //Turbolinks.clearCache();
+        //Turbolinks.visit("");
       },
     });
   }

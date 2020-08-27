@@ -1,26 +1,13 @@
 <div id="gameInfo" data-game-id = "<%=@game.id%>">
       <%= @game.turn_number %>
 </div>
-<% if @game.status == "waiting"%> 
-  <h1>Hello we're waiting </h1>
-<% elsif @game.status == "started"%>
-  <div class="container">
 
-    <iframe src="https://player.vimeo.com/video/<%= @gamequestions[@game.turn_number].question.link %>?autoplay=1&muted=1#t=40s" 
-            width="640" 
-            height="360" 
-            frameborder=“0” 
-            allowfullscreen 
-            allow=autoplay>
-    </iframe>
-    <%= @game_question.question.link  %>
-    <%=@game_question.order_number%>
-    <% @game_question.question.all_answers.shuffle.each do |ans|%>
-      <p>
-        <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH" %>
-      </p>
-    <% end %>   
-  </div>
-<%else%>
-  <h1>Game over</h1>
-<%end%>
+<div id="mainbody">
+  <% if @game.status == "waiting"%> 
+    <%= render "waiting" %>
+  <% elsif @game.status == "started"%>
+    <%= render "started" %>
+  <%else%>
+    <%= render "completed" %>
+  <%end%>
+</div>
