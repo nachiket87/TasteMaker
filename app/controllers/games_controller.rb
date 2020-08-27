@@ -39,6 +39,8 @@ class GamesController < ApplicationController
       @game.update(turn_number: @game.turn_number + 1)
       @game_question = @game.game_questions[@game.turn_number]
       if @game.turn_number == 10
+        @winner = @game.host_score > @game.player_score ? @game.host : @game.player
+        @game.host_score 
         @game.update(status: :completed)
         GameChannel.broadcast_to(@game, render_to_string(partial: "completed"))
       else
