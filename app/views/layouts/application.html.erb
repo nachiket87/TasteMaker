@@ -4,7 +4,9 @@
     <title>TasteMaker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <% if user_signed_in? %>
+      <meta name="current_user_id" content="<%= current_user.id %>">
+    <% end %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
