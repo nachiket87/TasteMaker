@@ -1,8 +1,13 @@
 class NotificationsController < ApplicationController
   def destroy
     @notification = Notification.find(params[:id])
-    @notification.game.status = "completed"
-    @notification.game.save
+    @game = Game.find(@notification.game_id)
+    @game.status = "rejected"
+    @game.save
+    GameChannel.broadcast_to(
+        @game,
+        render_to_string(partial: "rejected")
+      )
     @notification.destroy
     # redirect_back(fallback_location: root_path)
   end

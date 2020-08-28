@@ -1,7 +1,7 @@
 <div id="gameInfo" data-game-id = "<%=@game.id%>">
 
 <div id="mainbody">
-  <% if @game.status == "waiting"%> 
+  <% if @game.status == "waiting"%>
     <%= render "waiting" %>
   <% elsif @game.status == "started"%>
     <%= render "started" %>
