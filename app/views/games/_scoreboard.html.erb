@@ -1,0 +1,14 @@
+<div class="scoreboard">
+  <div>
+    <% @game.turn_number.times do %>
+      <i class="fas fa-smile"></i>
+    <% end %>
+  </div>
+    <h1>Current Turn Number: <%= @game.turn_number %></h1>
+      <%= @game.game_questions[@game.turn_number-1]%>
+  <div>
+    <% @game.turn_number.times do %>
+      <i class="fas fa-frown"></i>
+    <% end %>
+  </div>
+</div>

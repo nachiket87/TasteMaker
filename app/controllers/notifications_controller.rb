@@ -1,6 +1,8 @@
 class NotificationsController < ApplicationController
   def destroy
     @notification = Notification.find(params[:id])
+    @notification.game.status = "completed"
+    @notification.game.save
     @notification.destroy
     # redirect_back(fallback_location: root_path)
   end

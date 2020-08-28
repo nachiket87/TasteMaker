@@ -1,6 +1,4 @@
 <div id="gameInfo" data-game-id = "<%=@game.id%>">
-      <%= @game.turn_number %>
-</div>
 
 <div id="mainbody">
   <% if @game.status == "waiting"%> 
@@ -10,4 +8,5 @@
   <%else%>
     <%= render "completed" %>
   <%end%>
+</div>
 </div>

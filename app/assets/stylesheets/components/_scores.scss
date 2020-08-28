@@ -1,0 +1,20 @@
+.scoreboard {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  div {
+    display: flex;
+    font-size: 2rem; 
+  }
+  .fa-smile {
+    color: green;
+  }
+  .fa-frown {
+    color: red;
+  }
+}
+
+
+
