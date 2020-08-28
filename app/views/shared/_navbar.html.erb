@@ -6,16 +6,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <% if user_signed_in? %>
-    <div class="dropdown">
-      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown trigger
-      </button>
-      <div class="dropdown-menu notificationContainer" aria-labelledby="dLabel">
-        <%= render partial: "shared/notification", locals: { user: current_user } %>
-      </div>
-    </div>
-  <%end%>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -24,7 +14,17 @@
           <%= link_to "Home", "#" , class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+          <% if user_signed_in? %>
+            <div class="dropdown">
+              <div id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <!-- <i class="far fa-bell"></i> -->
+                <%= link_to "Notifications", "#" , class: "nav-link" %>
+              </div>
+              <div class="dropdown-menu notificationContainer" aria-labelledby="dLabel">
+                <%= render partial: "shared/notification", locals: { user: current_user } %>
+              </div>
+            </div>
+          <%end%>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
