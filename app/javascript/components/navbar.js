@@ -15,13 +15,13 @@ const showNotificationContent = () => {
     });
   });
 
-  const accepts = document.querySelectorAll(".accept-button");
-  accept.forEach((accept) => {
-    accept.addEventListener('click', (event) => {
-      event.preventDefault();
-      accept.parentElement.innerHTML = "";
-    });
-  });
+  // const accepts = document.querySelectorAll(".accept-button");
+  // accepts.forEach((accept) => {
+  //   accept.addEventListener('click', (event) => {
+  //     event.preventDefault();
+  //     accept.parentElement.innerHTML = "";
+  //   });
+  // });
 }
 
 
