@@ -31,6 +31,7 @@ import "bootstrap";
 import { initGameCable } from "../channels/game_channel"
 import { initNotificationCable } from "../channels/notification_channel"
 import { showNotificationContent } from '../components/navbar';
+import { buttonClicked } from '../components/button';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -39,5 +40,6 @@ document.addEventListener('turbolinks:load', () => {
   initNotificationCable();
 
   showNotificationContent();
+  // buttonClicked();
 
 });

@@ -41,8 +41,10 @@ class GamesController < ApplicationController
   def answer
     @game = Game.find(params[:game_id])
     if params[:answer] == GameQuestion.where(game: @game).find_by(order_number: @game.turn_number).question.answers[:correct]
-      User.find(params[:user_id]) == @game.host ? @game.host_score += 1 : @game.player_score += 1
-      GameQuestion.where(game: @game).find_by(order_number: @game.turn_number).update(user:current_user)
+      round_winner = User.find(params[:user_id])
+      round_winner == @game.host ? @game.host_score += 1 : @game.player_score += 1
+      current_question = @game.game_questions[@game.turn_number]
+      current_question.user = round_winner
       @game.update(turn_number: @game.turn_number + 1)
       @game_question = @game.game_questions[@game.turn_number]
       if @game.turn_number == 10
@@ -51,7 +53,10 @@ class GamesController < ApplicationController
         @game.update(status: :completed)
         GameChannel.broadcast_to(@game, render_to_string(partial: "completed"))
       else
+
         @gamequestions = @game.game_questions
+        GameChannel.broadcast_to(@game, render_to_string(partial: "result", locals: { winner: round_winner }))
+        sleep(3)
         GameChannel.broadcast_to(@game, render_to_string(partial: "started"))
       end
     end
