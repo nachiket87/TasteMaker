@@ -2,16 +2,15 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
     if !@game.player.present? && current_user != @game.host
       @game.update(player: current_user, status: "started")  
-      @game_question = @game.game_questions[@game.turn_number]
       GameChannel.broadcast_to(
         @game,
         render_to_string(partial: "started") 
       )
     end
     @gamequestions = @game.game_questions
-    @game_question = @gamequestions[@game.turn_number]
   end
 
   def create
@@ -40,22 +39,21 @@ class GamesController < ApplicationController
 
   def answer
     @game = Game.find(params[:game_id])
-    if params[:answer] == GameQuestion.where(game: @game).find_by(order_number: @game.turn_number).question.answers[:correct]
-      round_winner = User.find(params[:user_id])
-      round_winner == @game.host ? @game.host_score += 1 : @game.player_score += 1
-      current_question = @game.game_questions[@game.turn_number]
-      current_question.user = round_winner
+    @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
+    if params[:answer] == @game_question.question.answers[:correct]
+      current_user == @game.host ? @game.host_score += 1 : @game.player_score += 1
+      @game_question.user = current_user
+      @game_question.save
       @game.update(turn_number: @game.turn_number + 1)
-      @game_question = @game.game_questions[@game.turn_number]
       if @game.turn_number == 10
         @winner = @game.host_score > @game.player_score ? @game.host : @game.player
         @game.host_score 
         @game.update(status: :completed)
         GameChannel.broadcast_to(@game, render_to_string(partial: "completed"))
       else
-
+        @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
         @gamequestions = @game.game_questions
-        GameChannel.broadcast_to(@game, render_to_string(partial: "result", locals: { winner: round_winner }))
+        GameChannel.broadcast_to(@game, render_to_string(partial: "result", locals: { winner: current_user }))
         sleep(3)
         GameChannel.broadcast_to(@game, render_to_string(partial: "started"))
       end
