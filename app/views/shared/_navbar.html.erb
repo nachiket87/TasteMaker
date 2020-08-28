@@ -11,16 +11,12 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#" , class: "nav-link" %>
-        </li>
-        <li class="nav-item">
           <% if user_signed_in? %>
-            <div class="dropdown">
+            <div class="dropdown mr-3 my-2">
               <div id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <!-- <i class="far fa-bell"></i> -->
-                <%= link_to "Notifications", "#" , class: "nav-link" %>
+                <i class="far fa-bell"></i>
               </div>
-              <div class="dropdown-menu notificationContainer" aria-labelledby="dLabel">
+              <div class="dropdown-menu dropdown-menu-right notificationContainer" aria-labelledby="dLabel">
                 <%= render partial: "shared/notification", locals: { user: current_user } %>
               </div>
             </div>
