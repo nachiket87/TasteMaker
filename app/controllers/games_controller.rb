@@ -3,11 +3,11 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     if !@game.player.present? && current_user != @game.host
-      @game.update(player: current_user, status: "started")  
+      @game.update(player: current_user, status: "started")
       @game_question = @game.game_questions[@game.turn_number]
       GameChannel.broadcast_to(
         @game,
-        render_to_string(partial: "started") 
+        render_to_string(partial: "started")
       )
     end
     @gamequestions = @game.game_questions
@@ -35,7 +35,7 @@ class GamesController < ApplicationController
     end
   end
 
-  def start 
+  def start
   end
 
   def answer
@@ -46,7 +46,7 @@ class GamesController < ApplicationController
       @game_question = @game.game_questions[@game.turn_number]
       if @game.turn_number == 10
         @winner = @game.host_score > @game.player_score ? @game.host : @game.player
-        @game.host_score 
+        @game.host_score
         @game.update(status: :completed)
         GameChannel.broadcast_to(@game, render_to_string(partial: "completed"))
       else
@@ -59,7 +59,7 @@ class GamesController < ApplicationController
   private
 
   def create_game_questions(game1)
-    Question.all.sample(10).each_with_index do |q, i| 
+    Question.all.sample(10).each_with_index do |q, i|
       GameQuestion.create!(game:game1, question:q, order_number: i)
     end
   end
