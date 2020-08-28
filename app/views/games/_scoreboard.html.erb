@@ -1,14 +1,23 @@
 <div class="scoreboard">
   <div>
-    <% @game.turn_number.times do %>
-      <i class="fas fa-smile"></i>
+    <% @game.game_questions.each do |gq| %>
+      <% if gq.user == @game.host %>
+        <i class="fas fa-smile"></i>
+      <% elsif gq.user.nil? %>
+      <% else %>
+        <i class="fas fa-frown"></i>
+      <% end %>
     <% end %>
   </div>
     <h1>Current Turn Number: <%= @game.turn_number %></h1>
-      <%= @game.game_questions[@game.turn_number-1]%>
   <div>
-    <% @game.turn_number.times do %>
-      <i class="fas fa-frown"></i>
+    <% @game.game_questions.each do |gq| %>
+      <% if gq.user == @game.player %>
+        <i class="fas fa-smile"></i>
+      <% elsif gq.user.nil? %>
+      <% else %>
+        <i class="fas fa-frown"></i>
+      <% end %>
     <% end %>
   </div>
 </div>
