@@ -1,9 +1,8 @@
-
-    <% user.notifications.reverse.each do |notification| %>
-      <div class="notification-div dropdown-item" data-notification-id = "<%= notification.id%>">
-        <%=link_to notification.content, "#", class:"dropdown-item my-2"%>
-        <button class="accept-button"><%=link_to "Accept", accept_path(notification) %></button>
-        <button class="decline-button"><%=link_to "Decline", notification_path(notification), :method => :delete %></button>
-      </div>
-    <%end%>
+<% user.notifications.reverse.each do |notification| %>
+  <div class="notification-div dropdown-item" data-notification-id = "<%= notification.id%>">
+    <%=link_to notification.content, "#", class:"dropdown-item my-2"%>
+    <button class="accept-button"><%=link_to "Accept", accept_path(notification) %></button>
+    <button class="decline-button"><%=link_to "Decline", notification_path(notification), :method => :delete %></button>
+  </div>
+<%end%>
 
