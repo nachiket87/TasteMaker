@@ -1,6 +1,6 @@
 const showNotificationContent = () => {
-  const button = document.getElementById("noti-drop");
-  const notiList = document.getElementById("notiDropDown")
+  const button = document.getElementById("dLabel");
+  const notiList = document.getElementById("notificationContainer")
   if (button) {
     button.addEventListener('click', (event) => {
       event.preventDefault();
