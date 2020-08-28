@@ -7,15 +7,14 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <% if user_signed_in? %>
-    <div class="dropdown mt-1" style="font-size: 35px;">
-      <%= link_to "#", id:"noti-drop" do %>
-        <i class="far fa-bell"></i>
-      <%end%>
-      <div id="notiDropDown" class="dropdown-menu notificationContainer">
+    <div class="dropdown">
+      <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown trigger
+      </button>
+      <div class="dropdown-menu notificationContainer" aria-labelledby="dLabel">
         <%= render partial: "shared/notification", locals: { user: current_user } %>
       </div>
     </div>
-
   <%end%>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
