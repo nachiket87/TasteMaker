@@ -6,7 +6,7 @@
       <div class="d-flex justify-content-left pr-4">
         <% if current_user.nil? %>
           <br>
-          <%= link_to "Sign Up", new_user_registration_path, class:'btn-gradient w-75' %> 
+          <%= link_to "Sign Up", new_user_registration_path, class:'btn-gradient text-center', style: 'width: 23em;'%> 
         <% else %>
           <%= form_tag("/games", method: "post") do %>
             <%= submit_tag("Create a Lobby", class:'btn-gradient', style: 'width: 23em;') %>
