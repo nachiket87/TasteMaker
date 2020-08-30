@@ -19,14 +19,14 @@
   padding: 12px 16px;
   border-radius: 10px;
   border: none;
-  background: rgb(58, 134, 249);
-  transition: background 0.3s ease;
+  background: #bd93f9;
   cursor: pointer;
   font-weight: bold;
 }
 
 .btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
+  background: linear-gradient(#bd93f9,rgb(250,147,249));
   color: white;
+  transition: background 0.3s ease;
 }
 
