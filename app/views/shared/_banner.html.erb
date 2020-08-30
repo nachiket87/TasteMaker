@@ -3,14 +3,16 @@
     <div class="banner-item-left">
       <h1>A new way to test your knowledge of Cinema.</h1>
       <p>Play the TasteMaker quiz and challenge your friends </p> 
-      <% if current_user.nil? %>
-        <br>
-        <%= link_to "Sign Up", new_user_registration_path, class:'btn-gradient' %> 
-      <% else %>
-        <%= form_tag("/games", method: "post") do %>
-          <%= submit_tag("Create a Lobby", class:'btn-gradient') %>
+      <div class="d-flex justify-content-left pr-4">
+        <% if current_user.nil? %>
+          <br>
+          <%= link_to "Sign Up", new_user_registration_path, class:'btn-gradient w-75' %> 
+        <% else %>
+          <%= form_tag("/games", method: "post") do %>
+            <%= submit_tag("Create a Lobby", class:'btn-gradient', style: 'width: 23em;') %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
 
     </div>
     <div class="banner-item-right">
