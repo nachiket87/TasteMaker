@@ -1,5 +1,4 @@
-<div class="container">
-  <%= render "scoreboard" %>
+<div class="form-content m-5">
   <div class="d-flex justify-content-center">
     <div class="row">
       <div class="col-12">
@@ -17,10 +16,10 @@
     <div class="container w-50">
       <% @game_question.question.all_answers.shuffle.each_with_index do |ans, index|%>
         <% if index == 0 || index == 2 %>
-          <div class="row m-4">
+          <div class="row">
         <%end%>
-        <div class="col-sm d-flex justify-content-center">
-          <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", :class => "btn btn-warning w-100" %>
+        <div class="col-sm-6 mb-4 d-flex justify-content-center">
+          <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", :class => "btn btn-gradient vw-100" %>
         </div>
         <% if index == 1 || index == 3 %>
           </div>
