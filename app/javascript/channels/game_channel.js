@@ -8,12 +8,14 @@ const initGameCable = () => {
       received(data) {
         console.log(data)
         const mainbody = document.getElementById("mainbody") // main body
-        if (data.winner && data.page2 && data.correct_answer) {
+        if (data.round_end && data.page2 && data.correct_answer) {
+          const resultDiv = document.getElementById('answers')
           Array.from(document.getElementsByClassName('btn')).forEach((button) => {
             console.log(button.innerText, data.correct_answer)
             if (button.innerText == data.correct_answer) { button.style.backgroundColor = '#50fa7b'; }
           })
-          setTimeout(() => loadNext(data, mainbody), 10000);
+          setTimeout(() => loadResult(data, resultDiv), 1000);
+          setTimeout(() => loadNext(data, mainbody), 6000);
         } else if (data.page2){
 ;          mainbody.innerHTML = "";
           mainbody.innerHTML = data.page2;
@@ -35,6 +37,11 @@ const loadNext = (data, mainbody) => {
         const player_name = document.getElementById("player-name")
         player_name.id="winner";
       }
+}
+
+const loadResult = (data, resultDiv) => {
+  resultDiv.innerHTML = "";
+  resultDiv.innerHTML = data.round_end;
 }
 
 const startTimer = (data, mainbody) => {

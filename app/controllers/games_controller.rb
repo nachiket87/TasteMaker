@@ -91,11 +91,14 @@ class GamesController < ApplicationController
         @gamequestions = @game.game_questions
         GameChannel.broadcast_to(@game, {
           correct_answer: params[:answer],
-          winner: render_to_string(partial: "result", locals: { winner: current_user }),
+          round_end: render_to_string(partial: "round_end", locals: {winner: current_user}),
+          # winner: render_to_string(partial: "result", locals: { winner: current_user }),
           page2: render_to_string(partial: "started"),
           winner_name: current_user.name.capitalize
         })
       end
+    else 
+      
     end
   end
 
