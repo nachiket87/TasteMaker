@@ -3,6 +3,6 @@
   <div class="notification-div dropdown-item" data-notification-id = "<%= notification.id%>">
     <%=link_to notification.content, "#", class:"dropdown-item my-2"%>
     <button class="noti-btn accept-button"><%=link_to "Accept", accept_path(notification), style:"text-decoration: none;", style:"color: white;" %></button>
-    <button class="noti-btn decline-button"><%=link_to "Decline", notification_path(notification), style:"color: white;", :method => :delete %></button>
+    <button class="noti-btn decline-button"><%=link_to "Decline", notification_path(notification), style:"color: white;", :method => :delete, remote: :true %></button>
   </div>
 <% end %>
