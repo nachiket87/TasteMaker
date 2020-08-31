@@ -21,16 +21,18 @@
 }
 
 .banner-content{
-  position: relative;
-  margin: 0 50px;
-  width: 75%;
-  border-radius: 5px;
+  margin: none;
   display: flex;
+  justify-content: space-around;
+  position: relative;
+  border-radius: 5px;
+  flex-wrap: wrap;
 }
  
 .banner-item-right{
-  flex: 0 0 55%;
-  overflow: auto;
+  margin: 3rem;
+  align-items: right;
+  padding: 1rem;
 }
 .banner-item-left{
   margin: 3rem;

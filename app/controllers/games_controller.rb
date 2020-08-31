@@ -7,9 +7,9 @@ class GamesController < ApplicationController
       @game.update(player: current_user, status: "started")
       @game_question = @game.game_questions[@game.turn_number]
       GameChannel.broadcast_to(
-        @game,
+        @game,{ page2:
         render_to_string(partial: "started")
-      )
+      })
     end
     @gamequestions = @game.game_questions
   end
@@ -63,9 +63,10 @@ class GamesController < ApplicationController
       else
         @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
         @gamequestions = @game.game_questions
-        GameChannel.broadcast_to(@game, render_to_string(partial: "result", locals: { winner: current_user }))
-        sleep(3)
-        GameChannel.broadcast_to(@game, render_to_string(partial: "started"))
+        GameChannel.broadcast_to(@game, {
+          winner: render_to_string(partial: "result", locals: { winner: current_user }),
+          page2: render_to_string(partial: "started")
+        })
       end
     end
   end
