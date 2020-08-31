@@ -79,8 +79,8 @@ class GamesController < ApplicationController
     if params[:answer] == @game_question&.question&.answers[:correct]
       # sleep(5);
       current_user == @game.host ? @game.host_score += 1 : @game.player_score += 1
-      @game_question.user = current_user
-      @game_question.save
+      @game_question.user = current_user unless @game_question.user.present?
+      @game_question.save 
       @game.update(turn_number: @game.turn_number + 1)
       if @game.turn_number == 10
         @winner = @game.host_score > @game.player_score ? @game.host : @game.player
