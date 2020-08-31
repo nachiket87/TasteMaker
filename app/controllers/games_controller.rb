@@ -15,9 +15,9 @@ class GamesController < ApplicationController
   end
 
   def create
-    
+
     @game = Game.new(host:current_user, turn_number: 0, host_score:0, player_score:0, status: "waiting")
-    
+
 
     if @game.save
       create_game_questions(@game)
@@ -65,6 +65,10 @@ class GamesController < ApplicationController
         GameChannel.broadcast_to(@game, render_to_string(partial: "started"))
       end
     end
+  end
+
+  def leaderboard
+
   end
 
   private
