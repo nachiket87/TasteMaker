@@ -72,7 +72,7 @@ class GamesController < ApplicationController
 
   def generate_leader_board
     @users = User.all
-    @sorted = @users.sort_by { |a| -a[:score] }
+    @sorted = User.order('score DESC')
   end
 
   private
