@@ -8,9 +8,9 @@
       </tr>
       <% @sorted.each do |user| %>
         <tr>
-          <th>#<%= @sorted.index(user) + 1%></th>
-          <th><%= user.name %></th>
-          <th><%= user.score %></th>
+          <td>#<%= @sorted.index(user) + 1%></th>
+          <td><%= user.name %></th>
+          <td><%= user.score %></th>
         </tr>
       <% end %>
     </table>
