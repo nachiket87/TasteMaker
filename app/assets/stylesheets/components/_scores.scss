@@ -26,6 +26,27 @@
       font-weight: 900;
     }
   }
+  .num-score-host {
+    margin: 18px 20px 0px 0px;
+    border: 2px solid #bd93f9;
+    width: 50px;
+    padding: 10px 0px 0px 11px;
+    border-radius: 20%;
+}
+.scoreboard .num-score-host {
+    padding-top: 30px;
+    margin: 0px 20px 0px 0px;
+  }
+
+  .num-score-player {
+    margin: 18px 0px 0px 20px;
+    border: 2px solid #bd93f9;
+    width: 50px;
+    padding: 10px 0px 0px 11px;
+    border-radius: 20%;
+  }
+
+
   .responsive-iframe{
     position: absolute;
     top: 0;
