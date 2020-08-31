@@ -68,7 +68,7 @@ class GamesController < ApplicationController
   end
 
   def generate_leader_board
-
+    @users = User.all
   end
 
   private
