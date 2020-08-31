@@ -9,10 +9,22 @@
     display: flex;
     font-size: 2rem; 
   }
+  h1{ 
+    font-weight: 600;
+    color: #ff5555;
+  }
   .name-score {
     display:flex;
     flex-direction: column;
     text-align: center;
+    
+    h4{
+      font-weight: 600;
+    }
+
+    p {
+      font-weight: 900;
+    }
   }
   .responsive-iframe{
     position: absolute;
