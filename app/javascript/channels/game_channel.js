@@ -8,16 +8,18 @@ const initGameCable = () => {
       received(data) {
         console.log(data)
         const mainbody = document.getElementById("mainbody") // main body
-        if (data.winner && data.page2) {
-          mainbody.innerHTML = ""
-          mainbody.innerHTML = data.winner
-          setTimeout(() => loadNext(data, mainbody), 1000);
+        if (data.winner && data.page2 && data.correct_answer) {
+          Array.from(document.getElementsByClassName('btn')).forEach((button) => {
+            console.log(button.innerText, data.correct_answer)
+            if (button.innerText == data.correct_answer) { button.style.backgroundColor = '#50fa7b'; }
+          })
+          setTimeout(() => loadNext(data, mainbody), 10000);
         } else if (data.page2){
-          mainbody.innerHTML = ""
-          mainbody.innerHTML = data.page2
+;          mainbody.innerHTML = "";
+          mainbody.innerHTML = data.page2;
         } else {
-          mainbody.innerHTML = ""
-          mainbody.innerHTML = data
+          mainbody.innerHTML = "";
+          mainbody.innerHTML = data;
         }
       },
     });
