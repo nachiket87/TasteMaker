@@ -15,9 +15,9 @@ class GamesController < ApplicationController
   end
 
   def create
-    
+
     @game = Game.new(host:current_user, turn_number: 0, host_score:0, player_score:0, status: "waiting")
-    
+
 
     if @game.save
       create_game_questions(@game)
@@ -45,6 +45,7 @@ class GamesController < ApplicationController
   end
 
   def answer
+    @user = current_user
     @game = Game.find(params[:game_id])
     @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
     if params[:answer] == @game_question.question.answers[:correct]
@@ -55,6 +56,8 @@ class GamesController < ApplicationController
       if @game.turn_number == 10
         @winner = @game.host_score > @game.player_score ? @game.host : @game.player
         @game.host_score
+        @user.update(score: @user.score += @game.host_score) if @user == @game.host
+        @user.update(score: @user.score += @game.player_score) if @user == @game.player
         @game.update(status: :completed)
         GameChannel.broadcast_to(@game, render_to_string(partial: "completed"))
       else
@@ -65,6 +68,11 @@ class GamesController < ApplicationController
         GameChannel.broadcast_to(@game, render_to_string(partial: "started"))
       end
     end
+  end
+
+  def generate_leader_board
+    @users = User.all
+    @sorted = @users.sort_by { |a| -a[:score] }
   end
 
   private
