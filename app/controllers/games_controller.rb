@@ -67,7 +67,7 @@ class GamesController < ApplicationController
     end
   end
 
-  def leaderboard
+  def generate_leader_board
 
   end
 
