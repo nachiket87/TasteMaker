@@ -2,3 +2,16 @@
 body {
   background-color: #282a36;
 }
+
+.main-content {
+  margin-left: 120px;
+  margin-top: 0;
+  width: 75%;
+  h2 {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+  }
+}
+
