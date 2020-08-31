@@ -30,8 +30,6 @@ const loadNext = (data, mainbody) => {
       mainbody.innerHTML = data.page2;
 }
 
-<<<<<<< HEAD
-=======
 const loadResult = (data, resultDiv) => {
   resultDiv.innerHTML = "";
   resultDiv.innerHTML = data.round_end;
@@ -42,6 +40,5 @@ const startTimer = (data, mainbody) => {
   mainbody.innerHTML = data.firstStart;
   setTimeout(() => loadNext(data, mainbody), 5000);
 }
->>>>>>> lenoy-backend
 export { initGameCable };
 
