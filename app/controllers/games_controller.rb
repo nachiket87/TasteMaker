@@ -15,10 +15,7 @@ class GamesController < ApplicationController
   end
 
   def create
-
     @game = Game.new(host:current_user, turn_number: 0, host_score:0, player_score:0, status: "waiting")
-
-
     if @game.save
       create_game_questions(@game)
       redirect_to game_path(@game)
@@ -41,7 +38,25 @@ class GamesController < ApplicationController
     )
   end
 
-  def start
+  def challenge
+    raise
+    @game = Game.new(host:current_user, turn_number: 0, host_score:0, player_score:0, status: "waiting")
+    if @game.save
+      create_game_questions(@game)
+      redirect_to game_path(@game)
+    else
+      render root_path
+    end
+    @user = User.find(params[:challenged_id])
+    @notification = Notification.new
+    @notification.user = @user
+    @notification.game = @game
+    @notification.content = "#{@game.host.name} has challenged you!"
+    @notification.save
+    NotificationChannel.broadcast_to(
+      @user,
+      render_to_string(partial: "shared/notification", locals: { user: @user })
+    )
   end
 
   def answer

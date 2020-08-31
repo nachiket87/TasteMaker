@@ -7,12 +7,15 @@ const initGameCable = () => {
     consumer.subscriptions.create({ channel: "GameChannel", id: id }, {
       received(data) {
         const mainbody = document.getElementById("mainbody") // main body
-        if (data.winner) {
+        if (data.winner && data.page2) {
           mainbody.innerHTML = ""
           mainbody.innerHTML = data.winner
           setTimeout(() => loadNext(data, mainbody), 1000);
-        } else {
+        } else if (data.page2){
           loadNext(data, mainbody);
+        } else {
+          mainbody.innerHTML = ""
+          mainbody.innerHTML = data
         }
       },
     });

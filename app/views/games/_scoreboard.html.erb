@@ -1,16 +1,9 @@
 <div class="scoreboard">
   <div class="d-flex align-items-center">
     <h4 class="mr-2" id="host-name"><%= @game.host.name.capitalize%> </h4>
-    <% @game.game_questions.each do |gq| %>
-      <% if gq.user == @game.host %>
-        <i class="fas fa-smile"></i>
-      <% elsif gq.user.nil? %>
-      <% else %>
-        <i class="fas fa-frown"></i>
-      <% end %>
-    <% end %>
+    <p style="color:white;"><%= @game.host_score %></p>
   </div>
-    <h1>Current Turn Number: <%= @game.turn_number %></h1>
+    <h1>Turns Left: <%= @game.game_questions.count - @game.turn_number %></h1>
   <div>
     <h3 class="mr-2" id="player-name"><%= @game.player.name.capitalize%> </h3>
     <% @game.game_questions.each do |gq| %>
