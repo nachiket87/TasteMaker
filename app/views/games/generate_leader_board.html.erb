@@ -1,8 +1,17 @@
 <div id="leaderboard">
   <h2>Leader Board</h2>
-  <ol>
-  <% @sorted.each do |user| %>
-    <li><%= user.name %> : <%= user.score %></li>
-  <% end %>
-  </ol>
+    <table class="leader-table">
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Total Score</th>
+      </tr>
+      <% @sorted.each do |user| %>
+        <tr>
+          <th>#<%= @sorted.index(user) + 1%></th>
+          <th><%= user.name %></th>
+          <th><%= user.score %></th>
+        </tr>
+      <% end %>
+    </table>
 </div>
