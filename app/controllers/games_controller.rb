@@ -98,7 +98,11 @@ class GamesController < ApplicationController
         })
       end
     else 
-      
+      NotificationChannel.broadcast_to(
+        @user, {
+          wrong_answer: params[:answer]
+        }
+      )
     end
   end
 
