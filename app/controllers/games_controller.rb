@@ -29,7 +29,7 @@ class GamesController < ApplicationController
 
   def invite
     @game = Game.find(params[:id])
-    @user = User.find_by(email:params[:email])
+    @user = User.find_by(email:params[:email].downcase)
     @notification = Notification.new
     @notification.user = @user
     @notification.game = @game
