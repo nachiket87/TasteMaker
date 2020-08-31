@@ -30,18 +30,16 @@ class GamesController < ApplicationController
   def invite
     @game = Game.find(params[:id])
     if User.find_by(email:params[:email].downcase)
-    @user = User.find_by(email:params[:email].downcase)
-    @notification = Notification.new
-    @notification.user = @user
-    @notification.game = @game
-    @notification.content = "#{@game.host.name} has challenged you!"
-    @notification.save
-      NotificationChannel.broadcast_to(
-        @user,
-        render_to_string(partial: "shared/notification", locals: { user: @user })
-      )
-    else
-      redirect_back(fallback_location: "/")
+      @user = User.find_by(email:params[:email].downcase)
+      @notification = Notification.new
+      @notification.user = @user
+      @notification.game = @game
+      @notification.content = "#{@game.host.name} has challenged you!"
+      @notification.save
+        NotificationChannel.broadcast_to(
+          @user,
+          render_to_string(partial: "shared/notification", locals: { user: @user })
+        )
     end
   end
 
