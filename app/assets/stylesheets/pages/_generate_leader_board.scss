@@ -2,15 +2,8 @@ body {
   background-color: #383a59;
 }
 
-div {
-  background-color : white;
-}
-
-.leader-table {
-  border: grey 1px solid;
-  border-radius: 10px;
-}
-
-.leader-table td {
-  border: grey 1px solid
+#leaderboard h2 {
+  width:100%;
+  text-align: center;
+  color: white
 }
