@@ -9,11 +9,13 @@
             <th>Total Score</th>
           </tr>
           <% @sorted.each do |user| %>
+            <% unless user.score.nil?  %>
             <tr>
               <td>#<%= @sorted.index(user) + 1%></td>
               <td><%= user.name %></td>
               <td><%= user.score %></td>
             </tr>
+            <% end %>
           <% end %>
         </table>
       </div>
