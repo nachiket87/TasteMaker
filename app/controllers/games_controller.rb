@@ -77,6 +77,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:game_id])
     @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
     if params[:answer] == @game_question&.question&.answers[:correct]
+      # sleep(5);
       current_user == @game.host ? @game.host_score += 1 : @game.player_score += 1
       @game_question.user = current_user
       @game_question.save
@@ -92,11 +93,19 @@ class GamesController < ApplicationController
         @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
         @gamequestions = @game.game_questions
         GameChannel.broadcast_to(@game, {
-          winner: render_to_string(partial: "result", locals: { winner: current_user }),
+          correct_answer: params[:answer],
+          round_end: render_to_string(partial: "round_end", locals: {winner: current_user}),
+          # winner: render_to_string(partial: "result", locals: { winner: current_user }),
           page2: render_to_string(partial: "started"),
           winner_name: current_user.name.capitalize
         })
       end
+    else 
+      NotificationChannel.broadcast_to(
+        @user, {
+          wrong_answer: params[:answer]
+        }
+      )
     end
   end
 

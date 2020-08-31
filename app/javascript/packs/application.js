@@ -28,10 +28,11 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-import { initGameCable } from "../channels/game_channel"
-import { initNotificationCable } from "../channels/notification_channel"
+import { initGameCable } from "../channels/game_channel";
+import { initNotificationCable } from "../channels/notification_channel";
 import { showNotificationContent } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
+import { loadDynamicResultText } from '../components/round_result';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -39,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   initNotificationCable();
   showNotificationContent();
   loadDynamicBannerText();
+  loadDynamicResultText();
 });
