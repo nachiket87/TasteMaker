@@ -71,8 +71,7 @@ class GamesController < ApplicationController
   end
 
   def generate_leader_board
-    @users = User.all
-    @sorted = User.order('score DESC')
+    @sorted = User.where.not(score: nil).order("score DESC")
   end
 
   private

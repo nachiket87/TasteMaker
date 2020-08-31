@@ -1,5 +1,5 @@
 <div id="leaderboard" class="container mt-5">
-  <h2>Leader Board</h2>
+  <h2><strong>Leader Board</strong></h2>
     <div class="row"></div>
       <div class="col-12 d-flex justify-content-center">
         <table class="table table-dark mt-4">
@@ -9,14 +9,12 @@
             <th>Total Score</th>
           </tr>
           <% @sorted.each do |user| %>
-            <% unless user.score.nil?  %>
             <tr>
               <td>#<%= @sorted.index(user) + 1%></td>
               <td><%= user.name %></td>
               <td><%= user.score %></td>
             </tr>
             <% end %>
-          <% end %>
         </table>
       </div>
   </div>
