@@ -14,3 +14,19 @@
   border-radius: 10px;
 }
 
+.btn-gradient {
+  color: white;
+  padding: 16px 24px;
+  border-radius: 50px;
+  border: none;
+  background: rgb(58, 134, 249);
+  transition: background 0.3s ease;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(#147EFF, #0F67DA);
+  color: white;
+}
+

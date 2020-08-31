@@ -1,6 +1,15 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Welcome to TasteMaker Quiz App</h1>
-    <a class="btn btn-flat" href="#">Apply now</a>
+<div class="banner"> 
+  <div class="banner-content">
+    <div class="banner-item-left">
+      <h1>A new way to test your knowledge of Cinema.</h1>
+      <p>Play the TasteMaker quiz and challenge your friends </p> 
+      <%= form_tag("/games", method: "post") do %>
+        <%= submit_tag("Create a Lobby", class:'btn-gradient') %>
+      <% end %>
+    </div>
+    <div class="banner-item-right">
+      <%= image_tag("https://res.cloudinary.com/dgudbai8t/image/upload/c_scale,w_720/v1598884578/vladimir-fedotov--w-V5GRG9-0-unsplash_i2debj.jpg", :alt => "rss feed") %>
+    </div>
+
   </div>
 </div>
