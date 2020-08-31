@@ -21,6 +21,7 @@
   position: relative;
   margin: 0 50px;
   width: 75%;
+  border-radius: 5px;
   display: flex;
   background-color: #ffffff;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23e9eaea' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
@@ -28,9 +29,11 @@
  
 .banner-item-right{
   flex: 0 0 55%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23e9eaea' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  border-radius: 5px;
 }
 .banner-item-left{
   margin: 3rem;
   padding: 1rem;
-  background-color: white;
+  background-color: black;
 }
