@@ -4,25 +4,29 @@ const initGameCable = () => {
   const messagesContainer = document.getElementById('gameInfo');
   if (messagesContainer) {
     const id = messagesContainer.dataset.gameId;
-    console.log(id)
     consumer.subscriptions.create({ channel: "GameChannel", id: id }, {
       received(data) {
-        if (data.type == "start game") {
-          // startGame();
-        }
         const mainbody = document.getElementById("mainbody") // main body
-        mainbody.innerHTML = ""
-        mainbody.innerHTML = data
-        //Turbolinks.clearCache();
-        //Turbolinks.visit("");
+        if (data.winner) {
+          mainbody.innerHTML = ""
+          mainbody.innerHTML = data.winner
+          setTimeout(() => loadNext(data, mainbody), 1000);
+        } else {
+          loadNext(data, mainbody);
+        }
       },
     });
   }
 }
-
-export { initGameCable };
-
-const startGame = () => {
-  const overlay = document.getElementById('overlayBack');
-  overlay.classList.add('hide');
+const loadNext = (data, mainbody) => {
+      mainbody.innerHTML = "";
+      mainbody.innerHTML = data.page2;
+      const host_name =  document.getElementById("host-name")
+      if(host_name.innerText===data.winner_name){
+        host_name.id="winner";
+      } else {
+        const player_name = document.getElementById("player-name")
+        player_name.id="winner";
+      }
 }
+export { initGameCable };

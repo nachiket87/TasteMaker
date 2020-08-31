@@ -1,21 +1,32 @@
 <div class="banner"> 
   <div class="banner-content">
     <div class="banner-item-left">
-      <h1>A new way to test your knowledge of <span style="color:#ff79c6">Cinema.</span></h1>
-      <p>Play the TasteMaker quiz and challenge your friends </p> 
-      <div class="d-flex justify-content-left pr-4">
-        <% if current_user.nil? %>
-          <br>
-          <%= link_to "Sign Up", new_user_registration_path, class:'btn-gradient text-center', style: 'width: 23em;'%> 
-        <% else %>
-          <%= form_tag("/games", method: "post") do %>
-            <%= submit_tag("Create a Lobby", class:'btn-gradient', style: 'width: 23em;') %>
+      <div style="width: 55%;">
+        <h1>A new way to test your knowledge of <span style="color:#ff79c6">Cinema.</span></h1>
+        <p>Play the TasteMaker quiz and challenge your friends </p> 
+        <div class="d-flex justify-content-left pr-4">
+          <% if current_user.nil? %>
+            <br>
+            <%= link_to "Sign Up", new_user_registration_path, class:'btn-gradient' %> 
+          <% else %>
+            <%= form_tag("/games", method: "post") do %>
+              <%= submit_tag("Create a Lobby", class:'btn-gradient') %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-
     </div>
     <div class="banner-item-right">
+      <h1> Currently Open Lobbies </h1>
+      <ul style="padding-left:0;">
+      <% @games.each do |game|  %>
+        Hosted By
+        <li style="list-style:none;">
+          <h4 style="color:white;font-weight:bold;"><%= game.host.name.capitalize %></h4> <%= link_to "Join Game", game_path(game) %>
+        </li>
+        <br>
+      <% end %>
+      </ul>
     </div>
   </div>
 </div>
