@@ -7,12 +7,14 @@
             <th>Rank</th>
             <th>Name</th>
             <th>Total Score</th>
+            <th>Action</th>
           </tr>
           <% @sorted.each do |user| %>
             <tr>
               <td>#<%= @sorted.index(user) + 1%></td>
-              <td><%= user.name %></td>
+              <td><%= user.name.capitalize %></td>
               <td><%= user.score %></td>
+              <td><%= link_to "Challenge", challenge_path(user.id), method: "post" %></td>
             </tr>
             <% end %>
         </table>

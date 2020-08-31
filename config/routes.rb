@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/notifications/:id", to: "notifications#accept", as: "accept"
   get "/generate_leader_board", to: "games#generate_leader_board"
   post "/games", to: "games#create", as: "create"
+  post "/games/:challenged_id", to: "games#challenge", as: "challenge"
   patch "/games/:id/invite", to: "games#invite", as: 'invite'
   patch "/games/:id/start", to: "games#start", as: 'start_game'
   patch "/games/:game_id/answer/:user_id", to: "games#answer", as:'game_answer'
