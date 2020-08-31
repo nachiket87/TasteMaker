@@ -10,7 +10,7 @@ const initGameCable = () => {
         if (data.winner) {
           mainbody.innerHTML = ""
           mainbody.innerHTML = data.winner
-          setTimeout(() => loadNext(data, mainbody), 3000);
+          setTimeout(() => loadNext(data, mainbody), 1000);
         } else {
           loadNext(data, mainbody);
         }
@@ -21,5 +21,12 @@ const initGameCable = () => {
 const loadNext = (data, mainbody) => {
       mainbody.innerHTML = "";
       mainbody.innerHTML = data.page2;
+      const host_name =  document.getElementById("host-name")
+      if(host_name.innerText===data.winner_name){
+        host_name.id="winner";
+      } else {
+        const player_name = document.getElementById("player-name")
+        player_name.id="winner";
+      }
 }
 export { initGameCable };
