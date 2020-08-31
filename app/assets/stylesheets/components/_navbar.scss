@@ -1,6 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #282a36;
+  color: white;
+  h2 {
+  font-family: Poppins;
+  color:white;
+  font-weight: 600;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
