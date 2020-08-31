@@ -1,7 +1,7 @@
 <div id="leaderboard">
   <h2>Leader Board</h2>
   <ol>
-  <% @users.each do |user| %>
+  <% @sorted.each do |user| %>
     <li><%= user.name %> : <%= user.score %></li>
   <% end %>
   </ol>
