@@ -3,8 +3,8 @@
     <div class="form-content">
       <h1 class = "text-center mb-5" style="font-weight: 600; color: white; font-family: 'Poppins', sans-serif;">Waiting for opponent<span id="banner-typed-text"></span></h1>
       <div class="d-flex">
-        <%= form_tag("/games/#{@game.id}/invite", method: "patch") do %>
-            <%= text_field_tag :email, nil, placeholder: 'Challenge someone by email', style: "flex-shrink: 1;" %> 
+        <%= form_tag("/games/#{@game.id}/invite", method: "patch", remote: :true) do %>
+            <%= text_field_tag :email, nil, placeholder: 'Challenge someone by email', style: "flex-shrink: 1;" %>
             <%= submit_tag("Challenge", class: 'btn-gradient', style: "height: 50px; margin-left: 10px;") %>
         <% end %>
       </div>
