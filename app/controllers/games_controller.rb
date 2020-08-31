@@ -81,7 +81,7 @@ class GamesController < ApplicationController
       @game_question.user = current_user unless @game_question.user.present?
       @game_question.save 
       @game.update(turn_number: @game.turn_number + 1)
-      if @game.turn_number == 10
+      if @game.turn_number == 1
         @winner = @game.host_score > @game.player_score ? @game.host : @game.player
         @game.host_score
         @user.update(score: @user.score += @game.host_score) if @user == @game.host
@@ -116,7 +116,7 @@ class GamesController < ApplicationController
   private
 
   def create_game_questions(game1)
-    Question.all.sample(10).each_with_index do |q, i|
+    Question.all.sample(1).each_with_index do |q, i|
       GameQuestion.create!(game:game1, question:q, order_number: i)
     end
   end
