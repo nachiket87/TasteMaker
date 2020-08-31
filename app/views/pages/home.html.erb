@@ -1,6 +1,9 @@
 <%= render "shared/banner" %>
 <div class="main-content">
-  <h2>Top Games <%= @games[2] %></h2>
+  <h2>Currently Open Games </h2>
+    <% @games.each do |game|  %>
+      <h4> <%= game.host.name %> <h4>
+    <% end %>
 </div>
 
 

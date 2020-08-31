@@ -48,7 +48,7 @@ class GamesController < ApplicationController
     @user = current_user
     @game = Game.find(params[:game_id])
     @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
-    if params[:answer] == @game_question&.question&.answers[:correct]
+    if params[:answer] == @game_question&.question&&.answers[:correct]
       current_user == @game.host ? @game.host_score += 1 : @game.player_score += 1
       @game_question.user = current_user
       @game_question.save
@@ -71,7 +71,8 @@ class GamesController < ApplicationController
   end
 
   def generate_leader_board
-    @sorted = User.where.not(score: nil).order("score DESC")
+    @users = User.all
+    @sorted = User.order('score DESC')
   end
 
   private
