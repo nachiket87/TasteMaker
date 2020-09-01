@@ -14,6 +14,14 @@
   border-radius: 10px;
 }
 
+.btn-success:hover {
+  color: white;
+}
+
+.loginForgot {
+  border-bottom: 1px solid #dadde1;
+}
+
 .btn-gradient {
   color: white;
   padding: 12px 16px;
@@ -29,5 +37,12 @@
   color: white;
   text-decoration: none;
   transition: background 0.3s ease;
+}
+
+#forgotButton {
+  display: block;
+  width: 100%;
+  margin: auto;
+  text-align: center;
 }
 

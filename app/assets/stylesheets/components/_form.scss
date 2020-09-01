@@ -1,5 +1,6 @@
 .form-login {
-  background: white;
+  background: #44475A;
+  color: white;
   padding: 20px 20px;
   margin-top: 50px;
   border-radius: 3px;
@@ -12,18 +13,19 @@
   }
   .btn {
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    text-decoration: none;
   }
 }
 
-#email{ 
+#email{
   width: 25em;
   height: 50px;
   background-color: #282a36;
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  border-style: none; 
+  border-style: none;
   padding: 20px;
 }
 
