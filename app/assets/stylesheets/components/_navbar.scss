@@ -4,7 +4,6 @@
   color: white;
   h2 {
   font-family: Poppins;
-  color:white;
   font-weight: 600;
   }
 }
@@ -34,3 +33,13 @@
 }
 
 .show {display:block;}
+
+.title{ 
+  color: #50fa7b;
+  transition: color .2s ease-in-out; 
+}
+
+.title:hover {
+  color: white; 
+}
+
