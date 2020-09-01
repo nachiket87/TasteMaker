@@ -6,7 +6,7 @@
         <%= form_tag("/games/#{@game.id}/invite", method: "patch", remote: :true) do %>
             <div class="emailSearch" style="width: 100%;">
               <%= text_field_tag :email, nil, placeholder: 'Challenge someone by email', class: "email" %>
-            <%= submit_tag("Challenge", class: 'challengeEmail btn-gradient', style: "height: 50px;") %>
+              <%= submit_tag("Challenge", class: 'challengeEmail btn-gradient') %>
           </div>
         <% end %>
       </div>
