@@ -1,8 +1,6 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 2rem 0;
-  margin: 2rem 0;
   background-color: #282a36;
   color: white;
 }
@@ -23,18 +21,14 @@
 .banner-content{
   margin: none;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  position: relative;
-  border-radius: 5px;
   flex-wrap: wrap;
 }
  
 .banner-item-right{
   margin: 3rem;
-  align-items: right;
-  padding: 1rem;
 }
 .banner-item-left{
   margin: 3rem;
-  padding: 1rem;
 }
