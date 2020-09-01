@@ -8,8 +8,16 @@
   font-weight: 600;
   }
 }
+.navbar-lewagon:hover {
+  background: #282a36;
+}
 
+.dropdown-item:hover {
+  background: #282a36;
+  color: white;
+}
 .dropdown-item {
+  background: #282a36;
   color: white;
 }
 
@@ -19,6 +27,10 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.notification-div:hover {
+  background-color: #282a36;
 }
 
 .show {display:block;}
