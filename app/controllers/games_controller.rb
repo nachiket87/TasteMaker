@@ -76,8 +76,7 @@ class GamesController < ApplicationController
     @user = current_user
     @game = Game.find(params[:game_id])
     @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
-    if params[:answer] == @game_question&.question&.answers[:correct]
-      # sleep(5);
+    if @game_question.present? && params[:answer] == @game_question&.question&.answers[:correct] #checking if game_question is present to stop from breaking
       current_user == @game.host ? @game.host_score += 1 : @game.player_score += 1
       @game_question.user = current_user unless @game_question.user.present?
       @game_question.save 

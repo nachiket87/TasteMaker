@@ -14,7 +14,7 @@ const initGameCable = () => {
             if (button.innerText == data.correct_answer) { button.style.backgroundColor = '#50fa7b'; }
           })
           setTimeout(() => loadResult(data, resultDiv), 1000);
-          setTimeout(() => loadNext(data, mainbody), 6000);
+          setTimeout(() => loadNext(data, mainbody), 3000);
         } else if (data.page2){
           loadNext(data, mainbody);
         } else {
@@ -35,10 +35,5 @@ const loadResult = (data, resultDiv) => {
   resultDiv.innerHTML = data.round_end;
 }
 
-const startTimer = (data, mainbody) => {
-  mainbody.innerHTML = "";
-  mainbody.innerHTML = data.firstStart;
-  setTimeout(() => loadNext(data, mainbody), 5000);
-}
 export { initGameCable };
 
