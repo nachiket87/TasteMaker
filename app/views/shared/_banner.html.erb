@@ -19,14 +19,20 @@
     <div class="banner-item-right">
       <h1> Currently Open Lobbies </h1>
       <ul style="padding-left:0;">
-      <% @games.each do |game|  %>
-        Hosted By
-        <li style="list-style:none;margin-bottom:2rem;">
-          <h4 style="color:white;font-weight:bold;"><%= game.host.name.capitalize %></h4>
-          <%= link_to "Join Game", game_path(game), class: 'btn-sm btn-light' %>
-        </li>
-      <% end %>
-      </ul>
+        <div class="games-container">
+        <% @games.each do |game|  %>
+          <div class="game-card">
+          Hosted By
+            <li style="list-style:none;">
+              <h4 style="color:white;font-weight:bold;"><%= game.host.name.capitalize %></h4>
+              <%= link_to "Join Game", game_path(game), class: 'btn-sm btn-light' %>
+            </li>
+          </div>
+        <% end %>
+        </ul>
+      </div>
     </div>
+    
+
   </div>
 </div>
