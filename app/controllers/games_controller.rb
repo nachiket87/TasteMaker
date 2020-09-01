@@ -7,8 +7,9 @@ class GamesController < ApplicationController
       @game.update(player: current_user, status: "started")
       @game_question = @game.game_questions[@game.turn_number]
       GameChannel.broadcast_to(
-        @game,{ page2:
-        render_to_string(partial: "started")
+        @game,{ 
+          firstStart: render_to_string(partial: "starter"),
+          page2: render_to_string(partial: "started")
       })
     end
     @gamequestions = @game.game_questions
@@ -41,6 +42,7 @@ class GamesController < ApplicationController
   end
 
   def challenge
+    raise
     @game = Game.new(host:current_user, turn_number: 0, host_score:0, player_score:0, status: "waiting")
     if @game.save
       create_game_questions(@game)

@@ -1,18 +1,15 @@
 <div class="scoreboard">
-  <div class="d-flex align-items-center">
-    <h4 class="mr-2" id="host-name"><%= @game.host.name.capitalize%> </h4>
-    <p style="color:white;"><%= @game.host_score %></p>
-  </div>
-    <h1>Turns Left: <%= @game.game_questions.count - @game.turn_number %></h1>
   <div>
-    <h3 class="mr-2" id="player-name"><%= @game.player.name.capitalize%> </h3>
-    <% @game.game_questions.each do |gq| %>
-      <% if gq.user == @game.player %>
-        <i class="fas fa-smile"></i>
-      <% elsif gq.user.nil? %>
-      <% else %>
-        <i class="fas fa-frown"></i>
-      <% end %>
-    <% end %>
+    <div class="name-score">
+      <h4 id="host-name"><%= @game.host.name.capitalize%></h4>
+      <p style="color:white;"><%= @game.host_score %></p>
+    </div>
+  </div>
+    <h1 class="turns-left">Turns Left: <%= @game.game_questions.count - @game.turn_number %></h1>
+  <div>
+    <div class="name-score">
+      <h4 id="player-name"><%= @game.player.name.capitalize%> </h4>
+      <p style="color:white;"><%= @game.player_score %></p>
+    </div>
   </div>
 </div>
