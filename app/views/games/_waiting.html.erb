@@ -4,9 +4,9 @@
       <h1 class = "text-center mb-5" style="font-weight: 600; color: white; font-family: 'Poppins', sans-serif; width: 100%; font-size: 3vw;">Waiting for opponent<span id="banner-typed-text"></span></h1>
       <div>
         <%= form_tag("/games/#{@game.id}/invite", method: "patch", remote: :true) do %>
-            <div style="width: 100%;">
-              <%= text_field_tag :email, nil, placeholder: 'Challenge someone by email', style: "width:68%;" %>
-            <%= submit_tag("Challenge", class: 'btn-gradient', style: "height: 50px; width: 30%;") %>
+            <div class="emailSearch" style="width: 100%;">
+              <%= text_field_tag :email, nil, placeholder: 'Challenge someone by email', class: "email" %>
+            <%= submit_tag("Challenge", class: 'challengeEmail btn-gradient', style: "height: 50px;") %>
           </div>
         <% end %>
       </div>
