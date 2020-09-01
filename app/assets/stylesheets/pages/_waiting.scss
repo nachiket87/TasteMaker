@@ -11,3 +11,13 @@
   height: 45px;
   vertical-align: center;
 }
+
+.waiting-content {
+    background: white;
+    border-radius: 10px;
+    background-color: #44475a;
+    padding: 30px;
+    @media (max-width: 950px){
+      padding: 20px;
+    }
+}

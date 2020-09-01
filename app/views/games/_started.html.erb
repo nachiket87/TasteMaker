@@ -22,7 +22,7 @@
           <div class="row">
         <%end%>
         <div class="col-sm-6 mb-4 d-flex justify-content-center">
-          <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", :class => "btn btn-gradient answerOptions" %>
+          <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", :class => "btn btn-gradient answerOptions grow" %>
         </div>
         <% if index == 1 || index == 3 %>
           </div>
