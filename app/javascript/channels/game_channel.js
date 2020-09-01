@@ -6,6 +6,7 @@ const initGameCable = () => {
     const id = messagesContainer.dataset.gameId;
     consumer.subscriptions.create({ channel: "GameChannel", id: id }, {
       received(data) {
+        console.log(data)
         const mainbody = document.getElementById("mainbody") // main body
         if (data.winner && data.page2) {
           mainbody.innerHTML = ""
