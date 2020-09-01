@@ -27,11 +27,20 @@
   text-decoration:none;
 }
 
+.btn-light {
+  color: white;
+  background-color: #44475a;
+}
+
+.btn-light:hover {
+  text-decoration: none;
+}
+
 .btn-gradient:hover {
-  background: linear-gradient(#bd93f9,rgb(250,147,249));
+  // background: linear-gradient(#bd93f9,rgb(250,147,249));
   color: #fff;
   text-decoration: none;
-  transition: background 0.3s ease;
+  // transition: background 0.3s ease;
 }
 .btn-gradient:active {
   box-shadow: 0 0 12px rgba(255,255,255, 0.5);
@@ -43,4 +52,9 @@
   margin: auto;
   text-align: center;
 }
+
+.challenge:hover {
+  opacity: 0.5; 
+}
+
 

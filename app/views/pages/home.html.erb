@@ -17,7 +17,7 @@
               <td>#<%= @sorted.index(user) + 1%></td>
               <td><%= user.name.capitalize %></td>
               <td><%= user.score %></td>
-              <td><%= link_to "Challenge", challenge_path(user.id), method: "post", class:'btn-sm btn-gradient' %></td>
+              <td><%= link_to "Challenge", challenge_path(user.id), method: "post", class:'btn-gradient challenge' %></td>
             </tr>
             <% end %>
         </table>

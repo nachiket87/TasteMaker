@@ -54,4 +54,8 @@
     padding: 1rem;
     border-radius:5px;
   }
+
+  .game-card:hover{
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
 }
