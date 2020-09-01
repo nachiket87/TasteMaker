@@ -24,7 +24,6 @@
 }
 
 #email{
-  width: 25em;
   height: 50px;
   background-color: #282a36;
   color: white;
@@ -32,6 +31,10 @@
   border-radius: 5px;
   border-style: none;
   padding: 20px;
+}
+
+.container {
+  display:flex;
 }
 
 .tooltip {

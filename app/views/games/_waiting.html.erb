@@ -2,10 +2,12 @@
   <div class="d-flex justify-content-center align-items-center" style="max-width: 1200px;">
     <div class="form-content">
       <h1 class = "text-center mb-5" style="font-weight: 600; color: white; font-family: 'Poppins', sans-serif;">Waiting for opponent<span id="banner-typed-text"></span></h1>
-      <div class="d-flex">
+      <div>
         <%= form_tag("/games/#{@game.id}/invite", method: "patch", remote: :true) do %>
-            <%= text_field_tag :email, nil, placeholder: 'Challenge someone by email', style: "flex-shrink: 1;" %>
-            <%= submit_tag("Challenge", class: 'btn-gradient', style: "height: 50px; margin-left: 10px;") %>
+            <div style="width: 100%;">
+              <%= text_field_tag :email, nil, placeholder: 'Challenge someone by email', style: "width:68%;" %>
+            <%= submit_tag("Challenge", class: 'btn-gradient', style: "height: 50px; width: 30%;") %>
+          </div>
         <% end %>
       </div>
       <h3 class = "text-center m-4" style="color: white; font-family: 'Poppins', sans-serif; font-weight: 400;">OR</h3>
