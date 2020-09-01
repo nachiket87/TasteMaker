@@ -3,12 +3,12 @@
   <div class="d-flex justify-content-center">
     <div class="row">
       <div class="col-12">
-        <iframe src="https://player.vimeo.com/video/<%= @game_question.question.link %>?autoplay=1&muted=1#t=40s" 
+        <iframe src="https://player.vimeo.com/video/<%= @game_question.question.link %>?autoplay=1&muted=1#t=40s"
                 class="responsive-iframe"
-                width="640" 
-                height="360" 
-                frameborder=“0” 
-                allowfullscreen 
+                width="640"
+                height="360"
+                frameborder=“0”
+                allowfullscreen
                 allow=autoplay>
         </iframe>
       </div>
@@ -21,12 +21,12 @@
           <div class="row">
         <%end%>
         <div class="col-sm-6 mb-4 d-flex justify-content-center">
-          <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", :class => "btn btn-gradient" %>
+          <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", :class => "btn btn-gradient answerOptions" %>
         </div>
         <% if index == 1 || index == 3 %>
           </div>
         <% end %>
-      <% end %>   
+      <% end %>
     </div>
   </div>
 </div>
