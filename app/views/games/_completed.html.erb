@@ -1,6 +1,8 @@
-<h1 class = "text-center mt-5">Game over! </h1>
-<h2 class="text-center mt-3"> <%= "#{@game.host.name} : #{@game.host_score} points" %></h2>
-<h2 class="text-center mt-2"> <%= "#{@game.player.name} : #{@game.player_score} points" %></h2>
+<div class="gameResults">
+  <h1 class = "text-center mt-5">Game over! </h1>
+  <h2 class="text-center mt-3"> <%= "#{@game.host.name} : #{@game.host_score} points" %></h2>
+  <h2 class="text-center mt-2"> <%= "#{@game.player.name} : #{@game.player_score} points" %></h2>
 
-<h1 class="text-center"><%= "#{@winner.name} is the big winner!!!" %></h1>
+  <h1 class="text-center"><%= "#{@winner.name} is the big winner!!!" %></h1>
+</div>
 
