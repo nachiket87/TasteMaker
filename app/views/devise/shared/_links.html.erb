@@ -10,11 +10,7 @@
   <% end %>
 </div>
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <button type="button" class="btn btn-gradient">
-    <%= link_to new_registration_path(resource_name) do %>
-      Sign up
-    <% end %>
-  </button>
+    <%= link_to "Sign up",new_registration_path(resource_name), class: "btn btn-gradient" %>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
