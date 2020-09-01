@@ -3,6 +3,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
+    @game_questions = @game.game_questions
     @first_game_started = !@game.player.present? && current_user != @game.host
     if @first_game_started       
       @game.update(player: current_user, status: "ready")
@@ -75,6 +76,7 @@ class GamesController < ApplicationController
   def answer
     @user = current_user
     @game = Game.find(params[:game_id])
+    @game_questions = @game.game_questions
     @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
     if @game_question.present? && params[:answer] == @game_question&.question&.answers[:correct] #checking if game_question is present to stop from breaking
       current_user == @game.host ? @game.host_score += 1 : @game.player_score += 1
@@ -89,14 +91,16 @@ class GamesController < ApplicationController
         @game.update(status: :completed)
         GameChannel.broadcast_to(@game, render_to_string(partial: "completed"))
       else
+        winner_is_host = @game_question.user == @game.host
         @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
         @gamequestions = @game.game_questions
-        winner_is_host = @game_question.user == @game.host
+        prev_game_num = @game.turn_number - 1
         GameChannel.broadcast_to(@game, {
           correct_answer: params[:answer],
           round_end: render_to_string(partial: "round_end", locals: {winner: current_user}),
           page2: render_to_string(partial: "started"),
-          winner_host: winner_is_host 
+          winner_host: winner_is_host,
+          turn_number: prev_game_num 
         })
       end
     else 

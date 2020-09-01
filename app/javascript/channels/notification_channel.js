@@ -11,7 +11,6 @@ const initNotificationCable = () => {
       received(data) {
         if (data.wrong_answer){
           Array.from(document.getElementsByClassName('btn')).forEach((button) => {
-            console.log(button.innerText, data.wrong_answer)
             if (button.innerText == data.wrong_answer) { button.style.backgroundColor = '#ff5555'; }
           })
         }else{
