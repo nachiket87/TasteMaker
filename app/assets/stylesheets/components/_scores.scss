@@ -42,7 +42,7 @@
     font-size: 20px;
   }
 }
-@media(max-width: 1000px) {
+@media(max-width: 900px) {
   .responsive-iframe{
       top: 0;
       left: 0;
@@ -53,6 +53,14 @@
   }
   .turns-left{
     display: none;
+  }
+  .name-score {
+    p {
+      font-size: 14px;
+    }
+    h4 {
+      font-size: 16px;
+    }
   }
 }
 
