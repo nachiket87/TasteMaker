@@ -1,5 +1,5 @@
 puts "Destroying Questions"
-Question.destroy_all if Rails.env.development?
+Question.destroy_all #if Rails.env.development?
 
 
 question1 = Question.create!(:link => "44434997", :answers => { correct: "Finding Nemo", incorrect: ["Frozen", "The Incredibles", "Jaws"] })
@@ -13,6 +13,11 @@ question8 = Question.create!(:link => "101315181", :answers => { correct: "The I
 question9 = Question.create!(:link => "3088877", :answers => { correct: "Office Space", incorrect: ["Moana", "The Incredibles", "Pinocchio"] })
 question10 = Question.create!(:link => "36364990", :answers => { correct: "Braveheart", incorrect: ["The Lost Kingdom", "Norsemen", "Kingdom of Heaven"] })
 question11 = Question.create!(:link => "26022168", :answers => { correct: "Pulp Fiction", incorrect: ["Django Unchained", "Kill Bill", "Inglorious Basterds"] })
+question12 = Question.create!(:link => "63394616", :answers => { correct: "Inglorious Basterds", incorrect: ["Hitler: Rise of Evil", "Saving Private Ryan", "Pearl Harbor"] })
+question13 = Question.create!(:link => "33257142", :answers => { correct: "The Departed", incorrect: ["The Aviator", "Scarface", "Gangs of New York"] })
+question14 = Question.create!(:link => "211088460", :answers => { correct: "Gladiator", incorrect: ["Centurion", "Ben-Hur", "Spartacus"] })
+question15 = Question.create!(:link => "4944032", :answers => { correct: "Casino Royal", incorrect: ["Golden Eye", "Quantum of Solace", "Goldfinger"] })
+question16 = Question.create!(:link => "134807219", :answers => { correct: "Anchorman 2", incorrect: ["Goodfellas", "Casino", "The Godfather"] })
 
 puts Question.all
 puts "completed"

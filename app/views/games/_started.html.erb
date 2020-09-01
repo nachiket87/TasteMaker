@@ -4,6 +4,7 @@
     <div class="row">
       <div class="col-12">
         <iframe src="https://player.vimeo.com/video/<%= @game_question.question.link %>?autoplay=1&muted=1#t=40s" 
+                class="responsive-iframe"
                 width="640" 
                 height="360" 
                 frameborder=“0” 
@@ -14,13 +15,13 @@
     </div>
   </div>
   <div class="d-flex justify-content-center mt-5">
-    <div class="container w-50">
+    <div class="container">
       <% @game_question.question.all_answers.shuffle.each_with_index do |ans, index|%>
         <% if index == 0 || index == 2 %>
           <div class="row">
         <%end%>
         <div class="col-sm-6 mb-4 d-flex justify-content-center">
-          <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", :class => "btn btn-gradient vw-100" %>
+          <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", :class => "btn btn-gradient" %>
         </div>
         <% if index == 1 || index == 3 %>
           </div>
