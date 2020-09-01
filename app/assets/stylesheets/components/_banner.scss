@@ -21,14 +21,30 @@
 .banner-content{
   margin: none;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   flex-wrap: wrap;
 }
  
 .banner-item-right{
   margin: 3rem;
+  background: #44475a;
+  padding: 2rem;
+  border-radius: 5px;
+  h1 {
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
 }
 .banner-item-left{
   margin: 3rem;
+}
+.games-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  .game-card {
+    background: #6272a4; 
+    padding: 1rem;
+    border-radius:5px;
+  }
 }
