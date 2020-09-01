@@ -2,11 +2,12 @@
   <div id="mainbody">
     <% if @game.status == "waiting"%>
       <%= render "waiting" %>
+    <% elsif @game.status == "ready"%>
+      <%= render "ready" %>
     <% elsif @game.status == "started"%>
       <%= render "started" %>
     <%else%>
       <%= render "completed" %>
     <%end%>
-
   </div>
 </div>

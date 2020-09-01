@@ -21,10 +21,9 @@
       <ul style="padding-left:0;">
       <% @games.each do |game|  %>
         Hosted By
-        <li style="list-style:none;">
+        <li style="list-style:none;margin-bottom:2rem;">
           <h4 style="color:white;font-weight:bold;"><%= game.host.name.capitalize %></h4>
-          <br>
-          <%= link_to "Join Game", game_path(game), class: 'btn-sm btn-gradient' %>
+          <%= link_to "Join Game", game_path(game), class: 'btn-sm btn-light' %>
         </li>
       <% end %>
       </ul>

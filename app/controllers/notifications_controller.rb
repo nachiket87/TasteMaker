@@ -16,6 +16,6 @@ class NotificationsController < ApplicationController
     @notification = Notification.find(params[:id])
     id = @notification.game.id
     @notification.destroy
-    redirect_to game_path(id)
+    redirect_to "/games/#{id}?new_game=true" 
   end
 end

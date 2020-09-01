@@ -5,22 +5,25 @@ class GamesController < ApplicationController
     @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
     @first_game_started = !@game.player.present? && current_user != @game.host
     if @first_game_started       
-      @game.update(player: current_user, status: "started")
+      @game.update(player: current_user, status: "ready")
       @game_question = @game.game_questions[@game.turn_number]
       GameChannel.broadcast_to(
         @game,{ 
-          firstStart: render_to_string(partial: "starter"),
-          page2: render_to_string(partial: "started")
-      })
-    end
-    if current_user == @game.player && @game.turn_number.zero?
-      GameChannel.broadcast_to(
-        @game,{ 
-          firstStart: render_to_string(partial: "starter"),
-          page2: render_to_string(partial: "started")
+          page2: render_to_string(partial: "ready")
       })
     end
     @gamequestions = @game.game_questions
+  end
+
+  def start
+    @game = Game.find(params[:id])
+    @game.update(status:'started')
+    @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
+    @gamequestions = @game.game_questions
+    GameChannel.broadcast_to(
+      @game,{ firstStart: render_to_string(partial: "starter"),
+        page2: render_to_string(partial: "started")
+    })
   end
 
   def create
