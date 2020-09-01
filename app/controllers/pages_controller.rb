@@ -3,5 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @games = Game.where(status: "waiting")
+    @users = User.all
+    @sorted = User.order('score DESC')
   end
 end
