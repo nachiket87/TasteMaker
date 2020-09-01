@@ -4,9 +4,17 @@
     width:35px;
     height: 35px;
     border: 2px #bd93f9 solid;
-    @media (max-width: 550px){
-      width: 12px;
-      height: 12px;
+    @media (max-width: 900px){
+      width: 27px;
+      height: 27px;
+    }
+    @media (max-width: 660px){
+      width: 20px;
+      height: 20px;
+    }
+    @media (max-width: 450px){
+      width: 15px;
+      height: 15px;
     }
   }
   .active {
@@ -19,4 +27,5 @@
     align-items: center;
   }
 }
+
 

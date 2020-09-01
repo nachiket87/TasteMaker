@@ -13,7 +13,7 @@ const initGameCable = () => {
             if (button.innerText == data.correct_answer) { button.style.backgroundColor = '#50fa7b'; }
           })
           setTimeout(() => loadResult(data, resultDiv), 1000);
-          setTimeout(() => loadNext(data, mainbody), 3000);
+          setTimeout(() => loadNext(data, mainbody), 2000);
         } else if (data.page2){
           loadNext(data, mainbody);
         } else {
