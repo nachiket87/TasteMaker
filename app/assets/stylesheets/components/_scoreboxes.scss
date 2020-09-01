@@ -1,0 +1,12 @@
+.scorebox-top-grid {
+  display: grid;
+  .one-box {
+    width:35px;
+    height: 35px;
+    border: 2px #bd93f9 solid;
+  }
+  .active {
+    background: #ffb86c;
+  }
+}
+

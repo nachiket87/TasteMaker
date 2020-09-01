@@ -91,12 +91,12 @@ class GamesController < ApplicationController
       else
         @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
         @gamequestions = @game.game_questions
+        winner_is_host = @game_question.user == @game.host
         GameChannel.broadcast_to(@game, {
           correct_answer: params[:answer],
           round_end: render_to_string(partial: "round_end", locals: {winner: current_user}),
-          # winner: render_to_string(partial: "result", locals: { winner: current_user }),
           page2: render_to_string(partial: "started"),
-          winner_name: current_user.name.capitalize
+          winner_host: winner_is_host 
         })
       end
     else 

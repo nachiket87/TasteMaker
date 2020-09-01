@@ -1,15 +1,14 @@
 <div class="scoreboard">
   <div>
     <div class="name-score">
-      <h4 id="host-name"><%= @game.host.name.capitalize%></h4>
-      <p style="color:white;"><%= @game.host_score %></p>
+      <h4 id="host-name"><%= @game.host.name.upcase%></h4>
+      <%= render "scoreboxes" %>
     </div>
   </div>
-    <h1 class="turns-left">Turns Left: <%= @game.game_questions.count - @game.turn_number %></h1>
   <div>
     <div class="name-score">
-      <h4 id="player-name"><%= @game.player.name.capitalize%> </h4>
-      <p style="color:white;"><%= @game.player_score %></p>
+      <h4 id="player-name"><%= @game.player.name.upcase%> </h4>
+      <%= render "playerscoreboxes" %>
     </div>
   </div>
 </div>
