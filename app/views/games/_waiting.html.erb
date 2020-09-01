@@ -6,12 +6,12 @@
         <%= form_tag("/games/#{@game.id}/invite", method: "patch", remote: :true) do %>
             <div class="emailSearch" style="width: 100%;">
               <%= text_field_tag :email, nil, placeholder: 'Challenge someone by email', class: "email" %>
-              <%= submit_tag("Challenge", class: 'challengeEmail btn-gradient') %>
+              <%= submit_tag("Challenge", class: 'challengeEmail btn-gradient my-3') %>
           </div>
         <% end %>
       </div>
       <h3 class = "text-center m-4" style="color: white; font-family: 'Poppins', sans-serif; font-weight: 400;">OR</h3>
-      <button class = "btn btn-gradient w-100" onclick="myFunction()">Copy the link and send it to a friend</button>
+      <button class = "btn btn-gradient w-100" onclick="myFunction()" style="height: 45px;">Copy to Clipboard</button>
       <script>
         function myFunction() {
           var dummy = document.createElement('input'),
