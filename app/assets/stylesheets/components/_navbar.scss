@@ -21,6 +21,12 @@
   color: white;
 }
 
+.dropdown .dropdown-menu {
+  visibility: hidden;
+  opacity:0;
+  transition: visibility 0s, opacity 0.2s ease-in-out;
+}
+
 .options-dropdown .dropdown-item:hover {
   // color: #50fa7b;
   font-weight: bold;
@@ -28,7 +34,8 @@
 
 .dropdown:hover .dropdown-menu {
   display: block;
-  transition: all 1s ease;
+  visibility: visible;
+  opacity: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
