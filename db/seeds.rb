@@ -20,5 +20,5 @@ question14 = Question.create!(:link => "211088460", :answers => { correct: "Glad
 question15 = Question.create!(:link => "4944032", :answers => { correct: "Casino Royal", incorrect: ["Golden Eye", "Quantum of Solace", "Goldfinger"] })
 question16 = Question.create!(:link => "134807219", :answers => { correct: "Anchorman 2", incorrect: ["Goodfellas", "Casino", "The Godfather"] })
 
-puts Question.all
-puts "completed"
+puts Question.all.answers.correct
+puts "Completed"
