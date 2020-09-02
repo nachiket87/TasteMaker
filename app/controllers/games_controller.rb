@@ -5,13 +5,16 @@ class GamesController < ApplicationController
     @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
     @game_questions = @game.game_questions
     @first_game_started = !@game.player.present? && current_user != @game.host
-    if @first_game_started       
+    if @first_game_started
       @game.update(player: current_user, status: "ready")
       @game_question = @game.game_questions[@game.turn_number]
       GameChannel.broadcast_to(
-        @game,{ 
+        @game,{
           page2: render_to_string(partial: "ready")
       })
+    end
+    if @game.status == "completed"
+      @winner = @game.host_score > @game.player_score ? @game.host : @game.player
     end
     @gamequestions = @game.game_questions
   end
@@ -81,7 +84,7 @@ class GamesController < ApplicationController
     if @game_question.present? && params[:answer] == @game_question&.question&.answers[:correct] #checking if game_question is present to stop from breaking
       current_user == @game.host ? @game.host_score += 1 : @game.player_score += 1
       @game_question.user = current_user unless @game_question.user.present?
-      @game_question.save 
+      @game_question.save
       @game.update(turn_number: @game.turn_number + 1)
       if @game.turn_number == 10
         @winner = @game.host_score > @game.player_score ? @game.host : @game.player
@@ -89,7 +92,7 @@ class GamesController < ApplicationController
         @user.update(score: @user.score += @game.host_score) if @user == @game.host
         @user.update(score: @user.score += @game.player_score) if @user == @game.player
         @game.update(status: :completed)
-        GameChannel.broadcast_to(@game, render_to_string(partial: "completed"))
+        GameChannel.broadcast_to(@game, {page: render_to_string(partial: "completed"), type: "completed"})
       else
         winner_is_host = @game_question.user == @game.host
         @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)
@@ -100,10 +103,10 @@ class GamesController < ApplicationController
           round_end: render_to_string(partial: "round_end", locals: {winner: current_user}),
           page2: render_to_string(partial: "started"),
           winner_host: winner_is_host,
-          turn_number: prev_game_num 
+          turn_number: prev_game_num
         })
       end
-    else 
+    else
       NotificationChannel.broadcast_to(
         @user, {
           wrong_answer: params[:answer]

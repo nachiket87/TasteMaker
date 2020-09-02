@@ -1,5 +1,6 @@
 import consumer from "./consumer";
 import { resizeVideoFrame } from "../components/videoplayer";
+import { startConfetti } from "../components/confetti";
 
 const initGameCable = () => {
   const messagesContainer = document.getElementById('gameInfo');
@@ -19,7 +20,8 @@ const initGameCable = () => {
           loadNext(data, mainbody);
         } else {
           mainbody.innerHTML = "";
-          mainbody.innerHTML = data;
+          mainbody.innerHTML = data.page;
+          if (data.type === "completed") {startConfetti();}
         }
       },
     });
