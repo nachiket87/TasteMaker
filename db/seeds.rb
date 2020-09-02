@@ -1,4 +1,5 @@
 puts "Destroying Questions"
+GameQuestion.destroy_all
 Question.destroy_all #if Rails.env.development?
 
 
