@@ -10,7 +10,7 @@
             <%= link_to "Sign Up", new_user_registration_path, class:'btn-gradient' %> 
           <% else %>
             <%= form_tag("/games", method: "post") do %>
-              <%= submit_tag("Create a Lobby", class:'btn-gradient') %>
+              <%= submit_tag("Create a Lobby", class:'btn-gradient grow') %>
             <% end %>
           <% end %>
         </div>
@@ -21,11 +21,11 @@
       <ul style="padding-left:0;">
         <div class="games-container">
         <% @games.each do |game|  %>
-          <div class="game-card">
+          <div class="game-card grow">
           Hosted By
             <li style="list-style:none;">
               <h4 style="color:white;font-weight:bold;"><%= game.host.name.capitalize %></h4>
-              <%= link_to "Join Game", game_path(game), class: 'btn-sm btn-light' %>
+              <%= link_to "Join Game", game_path(game), class: 'btn-sm btn-light grow' %>
             </li>
           </div>
         <% end %>
