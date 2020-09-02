@@ -1,20 +1,24 @@
 <div class="scoreboard">
   <div class="d-flex justify-content-between align-items-end score-host-container">
-    <div class="num-score-host">
-      <h4><%= @game.host_score %></h4>
-    </div>
     <div class="name-score">
-      <h4 id="host-name"><%= @game.host.name.upcase%>       
+      <div class="scoreboard-top">
+        <div class="num-score-host">
+          <h4><%= @game.host_score %></h4>
+        </div>
+        <h4 id="host-name"><%= @game.host.name.upcase%></h4>
+      </div>
       <%= render "scoreboxes" %>
     </div>
   </div>
   <div class="d-flex justify-content-between align-items-end score-player-container">
     <div class="name-score">
-      <h4 id="player-name"><%= @game.player.name.upcase%> 
+      <div class="justify-content-end scoreboard-top">
+        <h4 id="player-name"><%= @game.player.name.upcase%> </h4>
+        <div class="num-score-player">
+          <h4><%= @game.player_score %></h4>
+        </div>
+      </div>
       <%= render "playerscoreboxes" %>
-    </div>
-    <div class="num-score-player">
-      <h4><%= @game.player_score %></h4>
     </div>
   </div>
 </div>

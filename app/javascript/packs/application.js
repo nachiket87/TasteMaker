@@ -33,6 +33,7 @@ import { initNotificationCable } from "../channels/notification_channel";
 import { showNotificationContent } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
 import { loadDynamicResultText } from '../components/round_result';
+import { videoplayer } from '../components/videoplayer';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -44,5 +45,8 @@ document.addEventListener('turbolinks:load', () => {
   }
   if(document.querySelector("#result-typed-text")) {
     loadDynamicResultText();
+  }
+  if(document.querySelector(".responsive-iframe")) {
+    videoplayer();
   }
 });

@@ -1,4 +1,5 @@
 import consumer from "./consumer";
+import { resizeVideoFrame } from "../components/videoplayer";
 
 const initGameCable = () => {
   const messagesContainer = document.getElementById('gameInfo');
@@ -27,6 +28,8 @@ const initGameCable = () => {
 const loadNext = (data, mainbody) => {
   mainbody.innerHTML = "";
   mainbody.innerHTML = data.page2;
+  const videoFrame = document.querySelector(".responsive-iframe");
+  resizeVideoFrame(videoFrame);
 }
 
 const loadResult = (data, resultDiv) => {
