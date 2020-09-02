@@ -39,6 +39,10 @@ document.addEventListener('turbolinks:load', () => {
   initGameCable();
   initNotificationCable();
   showNotificationContent();
-  loadDynamicBannerText();
-  loadDynamicResultText();
+  if(document.querySelector("#banner-typed-text")) {
+    loadDynamicBannerText();
+  }
+  if(document.querySelector("#result-typed-text")) {
+    loadDynamicResultText();
+  }
 });
