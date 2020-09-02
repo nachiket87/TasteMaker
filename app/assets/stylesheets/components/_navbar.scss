@@ -21,6 +21,10 @@
   color: white;
 }
 
+// .dropdown .dropdown-menu {
+//   transition: display 3s ease;
+// }
+
 .options-dropdown .dropdown-item:hover {
   // color: #50fa7b;
   font-weight: bold;
@@ -28,7 +32,6 @@
 
 .dropdown:hover .dropdown-menu {
   display: block;
-  transition: all 1s ease;
 }
 
 .navbar-lewagon .navbar-collapse {
