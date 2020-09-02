@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= controller_name == "games" ? 'gamenavbar' : '' %>">
   <%= link_to root_path, class: "navbar-brand" do %>
     <h2 class="title"> FilmFighter </h2>
     <% end %>
