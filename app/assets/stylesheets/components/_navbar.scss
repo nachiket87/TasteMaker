@@ -28,6 +28,7 @@
 
 .dropdown:hover .dropdown-menu {
   display: block;
+  transition: all 1s ease;
 }
 
 .navbar-lewagon .navbar-collapse {
