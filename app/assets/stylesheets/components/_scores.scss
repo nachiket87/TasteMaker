@@ -8,6 +8,8 @@
   align-items: center;
   h4 {
     font-family: Poppins;
+    margin: 0;
+    padding: 0;
   }
   div {
     display: flex;
@@ -31,25 +33,29 @@
     }
   }
   .num-score-host {
-    margin: 18px 20px 0px 0px;
     border: 2px solid #bd93f9;
+    display: flex;
+    margin-right:10px;
+    justify-content: center;
+    align-items: center;
     width: 50px;
-    padding: 10px 0px 0px 11px;
-    border-radius: 20%;
+    border-radius: 5px;
+    @media(max-width: 700px){
+      margin-top: 4px;
+    }
 }
-.scoreboard .num-score-host {
-    padding-top: 30px;
-    margin: 0px 20px 0px 0px;
-  }
-
   .num-score-player {
-    margin: 18px 0px 0px 20px;
     border: 2px solid #bd93f9;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50px;
-    padding: 10px 0px 0px 11px;
-    border-radius: 20%;
+    border-radius: 5px;
+    @media(max-width: 700px){
+      margin-top: 4px;
+    }
   }
-
 
   .responsive-iframe{
     position: absolute;
@@ -78,7 +84,20 @@
   .fas{
     font-size: 20px;
   }
+  .score-host-container {
+    @media(max-width: 700px) {
+      flex-direction: column-reverse;
+      align-items: center !important; 
+    }
+  }
+  .score-player-container {
+    @media(max-width: 700px) {
+      flex-direction: column;
+      align-items: center !important; 
+    }
+  }
 }
+
 @media(max-width: 700px) {
   .responsive-iframe{
       top: 0;
