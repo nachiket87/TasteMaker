@@ -9,7 +9,7 @@ question3 = Question.create!(:link => "66615298", :answers => { correct: "Titani
 question4 = Question.create!(:link => "289488598", :answers => { correct: "Lord of the Rings", incorrect: ["The Fast & The Furious", "Cars", "Iron Eagle"] })
 question5 = Question.create!(:link => "119857523", :answers => { correct: "Mulan", incorrect: ["Frozen", "Tangled", "Pocahontas"] })
 question6 = Question.create!(:link => "35124119", :answers => { correct: "Planet of the Apes", incorrect: ["Santa Claus", "The Incredibles", "The Lion King"] })
-question7 = Question.create!(:link => "22612157", :answers => { correct: "Trainspotting", incorrect: ["The Departed", "Crash", "Snatch"] })
+question7 = Question.create!(:link => "22612157", :answers => { correct: "Trainspotting", incorrect: ["The Departed", "Crash" , "Snatch"] })
 question8 = Question.create!(:link => "101315181", :answers => { correct: "The Imitation Game", incorrect: ["Hitler: Rise of Evil", "The Incredibles", "Jaws"] })
 question9 = Question.create!(:link => "3088877", :answers => { correct: "Office Space", incorrect: ["Moana", "The Incredibles", "Pinocchio"] })
 question10 = Question.create!(:link => "36364990", :answers => { correct: "Braveheart", incorrect: ["The Lost Kingdom", "Norsemen", "Kingdom of Heaven"] })
