@@ -1,6 +1,7 @@
 .banner {
-  background-size: cover;
-  background-position: center;
+  background-image: url('https://images.unsplash.com/photo-1485095329183-d0797cdc5676?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  background-size: auto;
+  background-position: 25% 60%;
   background-color: #282a36;
   color: white;
 }
@@ -13,9 +14,15 @@
   margin-bottom: 1rem;
 }
 
+.banner-item-left h1 {
+  text-shadow: 2px 2px 5px black;
+}
+
 .banner p {
   font-size: 20px;
-  color: rgb(146, 149, 151);
+  font-weight: bolder;
+  color: rgb(146, 149, 150);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .banner-content{
@@ -34,6 +41,12 @@
     margin-bottom: 2rem;
     font-weight: 600;
   }
+
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+  @media (max-width: 700px) {
+    margin: 3rem 1px;
+  }
+
 }
 .banner-item-left{
   margin: 3rem;
@@ -42,9 +55,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2rem;
+  @media (max-width: 500px){
+    grid-template-columns: 1fr 1fr;
+  }
   .game-card {
     background: #6272a4; 
     padding: 1rem;
     border-radius:5px;
+  }
+
+  .game-card:hover{
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
   }
 }
