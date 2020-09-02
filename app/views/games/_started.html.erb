@@ -10,8 +10,8 @@
                 allow=autoplay>
         </iframe>
         <div id="answers">
-          <% @game_question.question.all_answers.shuffle.each_with_index do |ans, index|%>
-              <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", :class => "btn btn-gradient answerOptions answer-grow" %>
+          <% @game_question.question.all_answers.shuffle.each_with_index do |ans, index| %>
+              <%= link_to ans, game_answer_path(@game, current_user,{answer: ans}), method: "PATCH", remote: true, :class => "btn btn-gradient answerOptions answer-grow" %>
           <% end %>
         </div>
     </div>
