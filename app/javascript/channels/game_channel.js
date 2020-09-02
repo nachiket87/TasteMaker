@@ -1,4 +1,5 @@
 import consumer from "./consumer";
+import { startConfetti } from "../components/confetti";
 
 const initGameCable = () => {
   const messagesContainer = document.getElementById('gameInfo');
@@ -19,6 +20,7 @@ const initGameCable = () => {
         } else {
           mainbody.innerHTML = "";
           mainbody.innerHTML = data;
+          startConfetti();
         }
       },
     });
