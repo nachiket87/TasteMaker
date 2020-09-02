@@ -1,15 +1,20 @@
 <div class="scoreboard">
-  <div>
+  <div class="d-flex justify-content-between align-items-end score-host-container">
+    <div class="num-score-host">
+      <h4><%= @game.host_score %></h4>
+    </div>
     <div class="name-score">
-      <h4 id="host-name"><%= @game.host.name.capitalize%></h4>
-      <p style="color:white;"><%= @game.host_score %></p>
+      <h4 id="host-name"><%= @game.host.name.upcase%>       
+      <%= render "scoreboxes" %>
     </div>
   </div>
-    <h1 class="turns-left">Turns Left: <%= @game.game_questions.count - @game.turn_number %></h1>
-  <div>
+  <div class="d-flex justify-content-between align-items-end score-player-container">
     <div class="name-score">
-      <h4 id="player-name"><%= @game.player.name.capitalize%> </h4>
-      <p style="color:white;"><%= @game.player_score %></p>
+      <h4 id="player-name"><%= @game.player.name.upcase%> 
+      <%= render "playerscoreboxes" %>
+    </div>
+    <div class="num-score-player">
+      <h4><%= @game.player_score %></h4>
     </div>
   </div>
 </div>

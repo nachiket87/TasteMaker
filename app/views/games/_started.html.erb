@@ -1,4 +1,4 @@
-<div class="form-content m-5">
+<div class="form-content">
     <%= render "scoreboard" %>
   <div class="d-flex justify-content-center">
     <div class="row">
@@ -6,6 +6,7 @@
         <iframe src="https://player.vimeo.com/video/<%= @game_question.question.link %>?autoplay=1&muted=1#t=40s"
                 class="responsive-iframe"
                 width="640"
+                style="border: 3px #bd93f9 solid;"
                 height="360"
                 frameborder=“0”
                 allowfullscreen
@@ -15,7 +16,7 @@
     </div>
   </div>
   <div class="d-flex justify-content-center mt-5">
-    <div id="answers" class="container">
+    <div id="answers" class="container px-5 mx-5">
       <% @game_question.question.all_answers.shuffle.each_with_index do |ans, index|%>
         <% if index == 0 || index == 2 %>
           <div class="row">

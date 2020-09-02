@@ -1,0 +1,15 @@
+<div class="scorebox-top-grid" id="player-score">
+  <% @game.game_questions.order(order_number: :DESC).each do |question| %>
+    <% if question.user == @game.player %>
+      <div class="one-box active">
+      </div>
+    <% elsif question.user == @game.host %>
+      <div class="one-box wrong">
+        -
+      </div>
+    <% else %>
+      <div class="one-box">
+      </div>
+    <%end%>
+  <% end %> 
+</div>
