@@ -5,11 +5,19 @@
   border-radius: 10px;
 }
 
+.accept-button:hover {
+  transform: scale(1.02);
+}
+
 .decline-button {
   background-color: #ff5555;
   width: 50%;
   padding: 3px;
   border-radius: 10px;
+}
+
+.decline-button:hover {
+  transform: scale(1.02);
 }
 
 .loginForgot {
@@ -54,7 +62,7 @@
 }
 
 .challenge:hover {
-  opacity: 0.5; 
+  opacity: 0.5;
 }
 
 
