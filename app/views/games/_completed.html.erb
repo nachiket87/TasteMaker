@@ -5,14 +5,18 @@
       <hr>
       <h4 class="text-center my-3" style="font-family: Poppins; font-weight: 400"> <%= "#{@game.host.name}: " + "#{pluralize(@game.host_score, 'point')}" %> </h4>
       <h4 class="text-center my-3" style="font-family: Poppins; font-weight: 400"> <%= "#{@game.player.name}: " + "#{pluralize(@game.player_score, 'point')}" %></h4>
-
+      <% if current_user.photo.attached? %>
+            <%= cl_image_tag @winner.photo.key, height: 300, width: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag "https://t4.ftcdn.net/jpg/00/64/67/63/240_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
       <h3 class="text-center mt-5" style="font-family: Poppins; font-weight: 600"><%= "#{@winner.name} is the big winner!!!" %></h3>
         <%= form_tag("/games", method: "post") do %>
           <%= submit_tag("Create a new game", class:'btn-gradient w-100 mt-3') %>
         <% end %>
         <%= form_tag("/", method: "get") do %>
           <%= submit_tag("Home", class:'btn-gradient w-100 mt-3') %>
-        <% end %>    
+        <% end %>
     </div>
   </div>
 </div>
