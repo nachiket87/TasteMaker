@@ -22,21 +22,21 @@ const showNotificationContent = () => {
 
   const accepts = document.querySelectorAll(".accept-button");
   accepts.forEach((accept) => {
-    accept.addEventListener('click', (event) => {
+    accept.addEventListener('click', () => {
       accept.parentElement.innerHTML = "";
     });
   });
 
   const notiButtons = document.querySelectorAll(".noti-btn");
   notiButtons.forEach((notiButton) => {
-    notiButton.addEventListener('click', (event) => {
+    notiButton.addEventListener('click', () => {
       numberNotifications -= 1;
       totalNotifications.innerHTML = numberNotifications;
     });
   });
-
-  totalNotifications.innerHTML = numberNotifications;
+  if(document.getElementById("notification-number")){
+    totalNotifications.innerHTML = numberNotifications;
+  }
 }
-
 
 export { showNotificationContent };
