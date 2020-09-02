@@ -21,6 +21,11 @@
   color: white;
 }
 
+.options-dropdown .dropdown-item:hover {
+  // color: #50fa7b;
+  font-weight: bold;
+}
+
 .dropdown:hover .dropdown-menu {
   display: block;
 }
