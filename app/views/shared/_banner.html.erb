@@ -7,10 +7,10 @@
         <div class="d-flex justify-content-left pr-4">
           <% if current_user.nil? %>
             <br>
-            <%= link_to "Sign Up", new_user_registration_path, class:'btn-gradient grow' %> 
+            <%= link_to "Sign Up", new_user_registration_path, class:'btn-gradient grow challengeEmail' %> 
           <% else %>
             <%= form_tag("/games", method: "post") do %>
-              <%= submit_tag("Create a Lobby", class:'btn-gradient grow') %>
+              <%= submit_tag("Create a Lobby", class:'btn-gradient grow challengeEmail') %>
             <% end %>
           <% end %>
         </div>

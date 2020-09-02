@@ -25,3 +25,12 @@ transition: all .2s ease-in-out;
 .grow:hover { 
 transform: scale(1.1); 
 }
+
+.answer-grow { 
+  transition: all .2s ease-in-out; 
+  cursor: pointer;
+}
+
+.answer-grow:hover {
+  transform: scale(0.95);
+}
