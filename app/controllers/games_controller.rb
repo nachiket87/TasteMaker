@@ -92,7 +92,7 @@ class GamesController < ApplicationController
         @user.update(score: @user.score += @game.host_score) if @user == @game.host
         @user.update(score: @user.score += @game.player_score) if @user == @game.player
         @game.update(status: :completed)
-        GameChannel.broadcast_to(@game, render_to_string(partial: "completed"))
+        GameChannel.broadcast_to(@game, {page: render_to_string(partial: "completed"), type: "completed"})
       else
         winner_is_host = @game_question.user == @game.host
         @game_question = GameQuestion.where(game: @game).find_by(order_number: @game.turn_number)

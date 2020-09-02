@@ -19,8 +19,8 @@ const initGameCable = () => {
           loadNext(data, mainbody);
         } else {
           mainbody.innerHTML = "";
-          mainbody.innerHTML = data;
-          startConfetti();
+          mainbody.innerHTML = data.page;
+          if (data.type === "completed") {startConfetti();}
         }
       },
     });
