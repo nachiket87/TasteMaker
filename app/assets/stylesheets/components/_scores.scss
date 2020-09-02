@@ -2,9 +2,13 @@
   color: white;
   height: 100px;
   display: flex;
+  margin-bottom: 1rem;
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  h4 {
+    font-family: Poppins;
+  }
   div {
     display: flex;
     font-size: 2rem; 

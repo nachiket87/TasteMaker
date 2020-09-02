@@ -1,13 +1,15 @@
 <div class="scoreboard">
   <div>
     <div class="name-score">
-      <h4 id="host-name"><%= @game.host.name.upcase%></h4>
+      <h4 id="host-name"><%= @game.host.name.upcase%> - <strong style="color: #50fa7b;"><%= @game.host_score%></strong></h4>
+      
       <%= render "scoreboxes" %>
     </div>
   </div>
   <div>
     <div class="name-score">
-      <h4 id="player-name"><%= @game.player.name.upcase%> </h4>
+      <h4 id="player-name"><%= @game.player.name.upcase%> - <strong style="color: #ff79c6;"><%= @game.player_score%></strong></h4>
+      
       <%= render "playerscoreboxes" %>
     </div>
   </div>
