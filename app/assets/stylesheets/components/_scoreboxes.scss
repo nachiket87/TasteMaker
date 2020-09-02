@@ -1,0 +1,22 @@
+.scorebox-top-grid {
+  display: grid;
+  .one-box {
+    width:35px;
+    height: 35px;
+    border: 2px #bd93f9 solid;
+    @media (max-width: 550px){
+      width: 12px;
+      height: 12px;
+    }
+  }
+  .active {
+    background: #ffb86c;
+  }
+  .wrong {
+    background: #44475a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+

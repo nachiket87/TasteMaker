@@ -10,7 +10,6 @@ const initGameCable = () => {
         if (data.round_end && data.page2 && data.correct_answer) {
           const resultDiv = document.getElementById('answers')
           Array.from(document.getElementsByClassName('btn')).forEach((button) => {
-            console.log(button.innerText, data.correct_answer)
             if (button.innerText == data.correct_answer) { button.style.backgroundColor = '#50fa7b'; }
           })
           setTimeout(() => loadResult(data, resultDiv), 1000);
@@ -26,8 +25,8 @@ const initGameCable = () => {
   }
 }
 const loadNext = (data, mainbody) => {
-      mainbody.innerHTML = "";
-      mainbody.innerHTML = data.page2;
+  mainbody.innerHTML = "";
+  mainbody.innerHTML = data.page2;
 }
 
 const loadResult = (data, resultDiv) => {
