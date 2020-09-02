@@ -34,7 +34,7 @@ const showNotificationContent = () => {
       totalNotifications.innerHTML = numberNotifications;
     });
   });
-  if(document.getElementById("notification-number")){
+  if(totalNotifications){
     totalNotifications.innerHTML = numberNotifications;
   }
 }
