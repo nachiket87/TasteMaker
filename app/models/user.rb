@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :games
   has_many :notifications
+  has_one_attached :photo
   #belongs_to :game_questions
 end
