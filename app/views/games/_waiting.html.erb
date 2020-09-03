@@ -3,7 +3,7 @@
     <div class="waiting-content col-xs-12 col-sm-10 col-md-8 col-lg-8">
       <h2 class = "text-center mb-5" style="font-weight: 600; color: white; font-family: 'Poppins', sans-serif; width: 100%; font-size: 3vw;">Waiting for opponent<span id="banner-typed-text"></span></h2>
       <div>
-        <%= form_tag("/games/#{@game.id}/invite", method: "patch", remote: :true) do %>
+        <%= form_tag("/games/#{@game.id}/invite", method: "patch", remote: true) do %>
             <div class="emailSearch" style="width: 100%;">
 
               <%= text_field_tag :email, nil, placeholder: 'Challenge someone by email', class: "email" %>

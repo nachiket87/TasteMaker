@@ -42,6 +42,17 @@
   }
 }
 
+.btn-gradient-homepage {
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #bd93f9;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration:none;
+}
+
 .btn-light {
   color: white;
   background-color: #44475a;
@@ -60,6 +71,15 @@
 .btn-gradient:active {
   box-shadow: 0 0 12px rgba(255,255,255, 0.5);
 }
+.btn-gradient-homepage:hover {
+  // background: linear-gradient(#bd93f9,rgb(250,147,249));
+  color: #fff;
+  text-decoration: none;
+  // transition: background 0.3s ease;
+}
+.btn-gradient-homepage:active {
+  box-shadow: 0 0 12px rgba(255,255,255, 0.5);
+}
 
 #forgotButton {
   display: block;
@@ -72,9 +92,5 @@
   opacity: 0.5;
 }
 
-.bannerSignUp {
-    width: 25%;
-    text-align: CENTER;
-}
 
 
