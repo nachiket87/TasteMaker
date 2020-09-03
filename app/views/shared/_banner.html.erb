@@ -19,12 +19,14 @@
       <ul style="padding-left:0;">
         <div class="games-container">
         <% @games.each do |game|  %>
+          <% unless game.host == current_user %>
           <div class="game-card grow">
           Hosted By
             <li style="list-style:none;">
               <h4 style="color:white;font-weight:bold;"><%= game.host.name.capitalize %></h4>
               <%= link_to "Join Game", game_path(game), class: 'btn-sm btn-light grow' %>
             </li>
+          <% end %>
           </div>
         <% end %>
         </ul>
