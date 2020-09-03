@@ -1,5 +1,5 @@
 meta_product_name: "Film Fighter"
 meta_title: "Film Fighter - Test your knowledge of cinema."
 meta_description: "Challenge your friends to a friendly game of guess the movie. Become a champion and conquer the leaderboards."
-meta_image: "image1.jpg" # should exist in `app/assets/images/`
+meta_image: "image1.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
