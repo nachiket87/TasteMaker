@@ -19,6 +19,11 @@ question13 = Question.create!(:link => "33257142", :answers => { correct: "The D
 question14 = Question.create!(:link => "211088460", :answers => { correct: "Gladiator", incorrect: ["Centurion", "Ben-Hur", "Spartacus"] })
 question15 = Question.create!(:link => "4944032", :answers => { correct: "Casino Royale", incorrect: ["Golden Eye", "Quantum of Solace", "Goldfinger"] })
 question16 = Question.create!(:link => "134807219", :answers => { correct: "Anchorman 2", incorrect: ["Goodfellas", "Casino", "The Godfather"] })
+question17 = Question.create!(:link => "226389040", :answers => { correct: "Pacific Rim", incorrect: ["Transformers", "Avengers", "Bedazzled"] })
+question18 = Question.create!(:link => "171201562", :answers => { correct: "The Matrix", incorrect: ["Pacific Rim", "Contagian", "John Wick"] })
+question19 = Question.create!(:link => "387343602", :answers => { correct: "La La Land", incorrect: ["Love Actually", "Crazy Stupid Love", "Due Date"] })
+
+
 
 puts Question.all
 puts "completed"
