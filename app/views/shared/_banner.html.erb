@@ -3,7 +3,7 @@
     <div class="banner-item-left">
       <div>
         <h1>A new way to test your knowledge of <span style="color:#ff79c6">Cinema.</span></h1>
-        <p>Play the TasteMaker quiz and challenge your friends </p> 
+        <p>Play Film Fighter and challenge your friends </p> 
           <% if current_user.nil? %>
             <br>
             <%= link_to "Sign Up", new_user_registration_path, class:'btn-gradient-homepage' %> 
@@ -14,21 +14,23 @@
           <% end %>
       </div>
     </div>
-    <div class="banner-item-right">
-      <h1> Currently Open Lobbies </h1>
-      <ul style="padding-left:0;">
-        <div class="games-container">
-        <% @games.each do |game|  %>
-          <div class="game-card grow">
-          Hosted By
-            <li style="list-style:none;">
-              <h4 style="color:white;font-weight:bold;"><%= game.host.name.capitalize %></h4>
-              <%= link_to "Join Game", game_path(game), class: 'btn-sm btn-light grow' %>
-            </li>
+    <% unless Game.where(status:'waiting').empty? %>
+      <div class="banner-item-right">
+        <h1> Currently Open Lobbies </h1>
+        <ul style="padding-left:0;">
+          <div class="games-container">
+            <% @games.each do |game|  %>
+              <div class="game-card grow">
+              Hosted By
+                <li style="list-style:none;">
+                  <h4 style="color:white;font-weight:bold;"><%= game.host.name.capitalize %></h4>
+                  <%= link_to "Join Game", game_path(game), class: 'btn-sm btn-light grow' %>
+                </li>
+              </div>
+            <% end %>
           </div>
-        <% end %>
         </ul>
       </div>
-    </div>
+    <%end%>
   </div>
 </div>
