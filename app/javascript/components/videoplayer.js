@@ -8,7 +8,9 @@ const videoplayer = () => {
 
 const resizeVideoFrame = (iframe) => {
   if(window.innerWidth <= 640){
+    if(iframe){
     iframe.height = (9 / 16) * window.innerWidth;
+    }
   }
 }
 
