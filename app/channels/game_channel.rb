@@ -7,7 +7,7 @@ class GameChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
-    if @game.status == "waiting"
+    if @game.status == "waiting" && (Time.now - @game.created_at > 1.minutes)
       @game.destroy
     end
   end
