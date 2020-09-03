@@ -46,8 +46,8 @@
   @media (max-width: 700px) {
     margin: 3rem 1px;
   }
-
 }
+
 .banner-item-left{
   margin: 3rem;
 }
@@ -66,5 +66,10 @@
 
   .game-card:hover{
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+}
+@media(max-width: 700px){
+  .kill-mobile-padding {
+    padding: 0;
   }
 }

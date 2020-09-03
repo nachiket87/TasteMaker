@@ -1,26 +1,24 @@
 <%= render "shared/banner" %>
-<div class="banner-item-right">
-<div class="waiting-content" style="padding:15px;">
-  <h2 style="font-family: Poppins; font-weight:600;color:white;text-align: center;">Leader Board</h2>
-    <div class="row"></div>
-      <div class="col-12 d-flex justify-content-center">
-        <table class="table table-dark mt-4">
+<div class="banner-item-right kill-mobile-padding">
+  <div class="waiting-content" style="">
+    <h2 style="font-family: Poppins; font-weight:600;color:white;text-align: center;">Leader Board</h2>
+    <div class="d-flex justify-content-center">
+      <table class="table table-dark mt-4">
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Total Score</th>
+          <th>Action</th>
+        </tr>
+        <% @sorted.each do |user| %>
           <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Total Score</th>
-            <th>Action</th>
+            <td><%= @sorted.index(user) + 1%></td>
+            <td><%= user.name.capitalize %></td>
+            <td><%= user.score %></td>
+            <td><%= link_to "Challenge", challenge_path(user.id), method: "post", class:'btn-sm btn-light grow p-2' %></td>
           </tr>
-          <% @sorted.each do |user| %>
-            <tr>
-                <td><%= @sorted.index(user) + 1%></td>
-                <td><%= user.name.capitalize %></td>
-                <td><%= user.score %></td>
-                <td><%= link_to "Challenge", challenge_path(user.id), method: "post", class:'btn-sm btn-light grow p-2' %></td>
-            </tr>
-            <% end %>
-        </table>
-      </div>
+          <% end %>
+      </table>
     </div>
   </div>
 </div>
