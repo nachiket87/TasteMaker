@@ -123,8 +123,14 @@
   private
 
   def create_game_questions(game1)
-    Question.all.sample(10).each_with_index do |q, i|
-      GameQuestion.create!(game:game1, question:q, order_number: i)
+    if game1.id.even?
+      Question.all.first(10).each_with_index do |q, i|
+        GameQuestion.create!(game:game1, question:q, order_number: i)
+      end
+    else
+      Question.all.last(10).each_with_index do |q, i|
+        GameQuestion.create!(game:game1, question:q, order_number: i)
+      end
     end
   end
 end
