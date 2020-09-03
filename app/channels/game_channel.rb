@@ -7,8 +7,8 @@ class GameChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
-    if @game.status == "waiting"
-      @game.destroy
-    end
+#    if @game.status == "waiting"
+#      @game.destroy
+#    end
   end
 end
