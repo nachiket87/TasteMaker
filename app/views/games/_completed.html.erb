@@ -14,7 +14,6 @@
         <h4 class="text-center my-3" style="font-family: Poppins; font-weight: 400"> <%= "#{@game.player.name}: " + "#{pluralize(@game.player_score, 'point')}" %></h4>
         <%= form_tag("/games", method: "post") do %>
           <%= submit_tag("Create a new game", class:'btn-gradient w-100 mt-3') %>
-          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
         <% end %>
         <%= form_tag("/", method: "get") do %>
           <%= submit_tag("Home", class:'btn-gradient w-100 mt-3') %>
