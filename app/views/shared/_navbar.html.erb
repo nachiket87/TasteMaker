@@ -25,7 +25,7 @@
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, height: 35, width: 35, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+            <%= cl_image_tag current_user.photo.key, height: 100, width: 100, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
           <% else %>
             <%= image_tag "https://t4.ftcdn.net/jpg/00/64/67/63/240_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
