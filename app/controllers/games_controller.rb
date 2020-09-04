@@ -88,9 +88,8 @@
       @game.update(turn_number: @game.turn_number + 1)
       if @game.turn_number == 10
         @winner = @game.host_score > @game.player_score ? @game.host : @game.player
-        @game.host_score
-        @user.update(score: @user.score += @game.host_score) if @user == @game.host
-        @user.update(score: @user.score += @game.player_score) if @user == @game.player
+        @game.host.update(score: @game.host.score += @game.host_score)
+        @game.player.update(score: @game.player.score += @game.player_score)
         @game.update(status: :completed)
         GameChannel.broadcast_to(@game, {page: render_to_string(partial: "completed"), type: "completed"})
       else
